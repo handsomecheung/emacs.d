@@ -9,3 +9,5 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get/recipes")
 (el-get 'sync)
+
+(provide 'init-elget)

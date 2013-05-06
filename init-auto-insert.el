@@ -26,3 +26,5 @@
   "Insert date at point."
   (interactive)
   (insert (format-time-string "%Y年%m月%e日 %l:%M %a %p")))
+
+(provide 'init-auto-insert)
