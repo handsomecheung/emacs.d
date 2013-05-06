@@ -1,5 +1,11 @@
 (require 'cl)
 
+;; 設置默認字體，我現在喜歡大一點的字體，養眼。
+;(set-default-font "Bitstream Vera Sans Mono-12")
+;; 设置中文字体
+;(set-fontset-font "fontset-default"
+                  ;'unicode '("WenQuanYi Bitmap Song" . "unicode-bmp"))
+
 
 (defun sanityinc/font-name-replace-size (font-name new-size)
   (let ((parts (split-string font-name "-")))

@@ -19,6 +19,7 @@
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
 (require 'init-elpa)      ;; Machinery for installing required packages
+;(require 'init-elget)
 (require 'init-exec-path) ;; Set up $PATH
 
 ;;----------------------------------------------------------------------------
@@ -43,11 +44,13 @@
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flymake)
+(require 'init-highlight-symbol)
 
 (require 'init-recentf)
 (require 'init-ido)
 (require 'init-hippie-expand)
 (require 'init-auto-complete)
+(require 'init-yasnippet)
 (require 'init-windows)
 (require 'init-sessions)
 (require 'init-fonts)

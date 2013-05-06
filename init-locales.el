@@ -1,3 +1,6 @@
+;emacs 23 之后默认支持了 unicode 内核，所以这句没有什么用了
+;(set-language-environment 'UTF-8)
+
 (defun locale-is-utf8-p ()
   "Return t iff the \"locale\" command or environment variables prefer UTF-8."
   (flet ((is-utf8 (v) (and v (string-match "UTF-8" v))))

@@ -7,7 +7,16 @@
 
 
 (define-key global-map "\C-cl" 'org-store-link)
+
+;日程快捷键
 (define-key global-map "\C-ca" 'org-agenda)
+
+;; Set to the location of your Org files on your local system
+(setq org-directory "~/Dropbox/workspace/org")
+;; Set to the name of the file where new notes will be stored
+(setq org-mobile-inbox-for-pull "~/Dropbox/workspace/org/flagged.org")
+;; Set to <your Dropbox root directory>/MobileOrg.
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 ;; Various preferences
 (setq org-log-done t
@@ -102,5 +111,41 @@
        (define-key org-mode-map (kbd "C-c g") 'omlg-grab-link))
      ;;(require 'org-checklist)
      (require 'org-fstree)))
+
+
+;---------------------------------------
+;   move to head and end
+;---------------------------------------
+;;;###autoload
+(defun org-mode-smart-beginning-of-line ()
+  "Move point to first non-whitespace character or beginning-of-line.
+Move point to beginning-of-line ,if point was already at that position,
+  move point to first non-whitespace character. "
+  (interactive)
+  (let ((oldpos (point)))
+    (org-beginning-of-line)
+    (and (= oldpos (point))
+         (back-to-indentation) )))
+
+;;;###autoload
+(defun org-mode-smart-end-of-line()
+  "Move point to first non-whitespace character or end-of-line.
+Move point to end-of-line ,if point was already at that position,
+  move point to first non-whitespace character."
+  (interactive)
+  (let ((oldpos (point)))
+    (org-end-of-line)
+    (if  (equal (point-at-eol) (point))
+      (progn
+        (beginning-of-line)
+        (when (re-search-forward "[ \t]*$" (point-at-eol) t)
+          (goto-char (match-beginning 0)))
+        )
+      (when (equal oldpos (point))
+        (end-of-line)))))
+(eval-after-load 'org
+  '(progn
+     (define-key org-mode-map "\C-a" 'org-mode-smart-beginning-of-line)
+     (define-key org-mode-map "\C-e" 'org-mode-smart-end-of-line)))
 
 (provide 'init-org)
