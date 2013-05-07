@@ -23,4 +23,3 @@ site-lisp/package/
 /.mc-lists.el
 /var
 *.swp
-.gitconfig

@@ -56,4 +56,10 @@ Move point to end-of-line ,if point was already at that position,
 ;(setq display-time-day-and-date t) ; 显示日期
 ;(setq column-number-mode t) ; 显示列号
 
+
+(setq backup-directory-alist
+      `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+
 (provide 'init-misc)
