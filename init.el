@@ -61,6 +61,12 @@
 
 (require 'init-darcs)
 (require 'init-git)
+(require 'init-comment)
+(require 'init-copy-cut-yank)
+(require 'init-autopair)
+(require 'init-quickrun)
+(require 'init-ecb)
+
 
 (require 'init-crontab)
 (require 'init-textile)
