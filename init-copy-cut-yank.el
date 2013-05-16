@@ -32,7 +32,7 @@
                           ;; (line-beginning-position (+ 1 arg)))
           (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 
-(global-set-key (kbd "M-k") 'qiang-copy-line)
+;(global-set-key (kbd "M-k") 'qiang-copy-line)
 
 
 
