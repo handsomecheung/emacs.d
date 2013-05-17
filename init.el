@@ -140,3 +140,4 @@
 ;; coding: utf-8
 ;; no-byte-compile: t
 ;; End:
+(put 'set-goal-column 'disabled nil)
