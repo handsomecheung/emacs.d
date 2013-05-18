@@ -1,9 +1,7 @@
 ;-------------------------------------------------------------------
 ;                highlight-symbol
 ;-------------------------------------------------------------------
-(require 'highlight-symbol)
-(add-to-list 'load-path "~/.emacs.d/el-get/highlight-symbol")
-(require 'highlight-symbol)
+(require-package 'highlight-symbol)
 
 (global-set-key (kbd "C-c C-u") 'highlight-symbol-at-point)
 (global-set-key (kbd "C-c C-n") 'highlight-symbol-next)

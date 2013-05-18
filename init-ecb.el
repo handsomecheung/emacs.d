@@ -1,8 +1,5 @@
 ;; ECB configurations
-;; (add-to-list 'load-path "~/emacs/ecb-2.40")
-;; (add-to-list 'load-path "~/emacs/cedet-1.0pre6/eieio")
-;; (add-to-list 'load-path "~/emacs/cedet-1.0pre6/semantic")
-;; (add-to-list 'load-path "~/emacs/cedet-1.0pre6/speedbar")
+(require-package 'ecb)
 (setq semantic-load-turn-everything-on t)
 (require 'semantic)
 (require 'ecb-autoloads)

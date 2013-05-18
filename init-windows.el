@@ -38,7 +38,7 @@
 
 
 
-(require 'window-number)
+(require-package 'window-number)
 (autoload 'window-number-mode "window-number"
   "A global minor mode that enables selection of windows according to
 numbers with the C-x C-j prefix.  Another mode,
@@ -60,7 +60,7 @@ the mode-line."
 (global-set-key (kbd "C-x 4 u") 'winner-undo)
 (global-set-key (kbd "C-x 4 r") 'winner-redo)
 
-(require 'buffer-move)
+(require-package 'buffer-move)
 (global-set-key (kbd "C-c C-v C-k")     'buf-move-up)
 (global-set-key (kbd "C-c C-v C-j")   'buf-move-down)
 (global-set-key (kbd "C-c C-v C-h")   'buf-move-left)
