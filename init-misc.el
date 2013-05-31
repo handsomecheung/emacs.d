@@ -35,8 +35,24 @@
 
 (add-hook 'find-file-hooks (lambda () (linum-mode 1)))
 
-(setq frame-title-format "%b@emacs")
 
+;; display buffer name or absolute file path name in the frame title
+(defun frame-title-string ()
+  "Return the file name of current buffer, using ~ if under home directory"
+  (let
+      ((fname (or
+	       (buffer-file-name (current-buffer))
+	       (buffer-name)))
+       (max-len 80))
+    (when (string-match (getenv "HOME") fname)
+      (setq fname (replace-match "~" t t fname)))
+    (if (> (length fname) max-len)
+	(setq fname
+	      (concat "..."
+		      (substring fname (- (length fname) max-len)))))
+    fname))
+(setq frame-title-format '("hc-Emacs@"(:eval (frame-title-string))))
+;(setq frame-title-format "%b@emacs")
 
 (setq user-full-name "Handsome Cheung")
 (setq user-mail-address "handsomecheung@gmail.com")
@@ -113,6 +129,10 @@ Current position is preserved."
   )
 
 ;(global-set-key (kbd "C-c C-y") 'strip-convert-lines-into-one-big-string)
+
+;;rebind M-v, avoid it's binded to ns-paste-secondary in GUI on Mac
+(global-set-key (kbd "M-v") 'cua-scroll-down)
+
 
 
 (provide 'init-misc)
