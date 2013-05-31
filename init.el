@@ -72,25 +72,25 @@
 (require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
-(require 'init-erlang)
-(require 'init-javascript)
+;(require 'init-erlang)
+;(require 'init-javascript)
 (require 'init-sh)
-(require 'init-php)
+;(require 'init-php)
 (require 'init-org)
 (require 'init-nxml)
 (require 'init-css)
-(require 'init-haml)
+;(require 'init-haml)
 (require 'init-python-mode)
-(require 'init-haskell)
+;(require 'init-haskell)
 (require 'init-ruby-mode)
 (require 'init-rails)
 (require 'init-sql)
 
 (require 'init-paredit)
-(require 'init-lisp)
-(require 'init-slime)
-(require 'init-clojure)
-(require 'init-common-lisp)
+;; (require 'init-lisp)
+;; (require 'init-slime)
+;; (require 'init-clojure)
+;; (require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
@@ -101,7 +101,7 @@
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
-(require-package 'lua-mode)
+;(require-package 'lua-mode)
 (require-package 'htmlize)
 (require-package 'dsvn)
 (when *is-a-mac*
