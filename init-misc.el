@@ -7,7 +7,7 @@
 
 (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
 (setq default-tab-width 4)
-
+(whitespace-mode 1)
 ;-------------------------------------
 ; Emacs on Mac OS alt key problem
 
