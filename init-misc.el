@@ -7,7 +7,7 @@
 
 (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
 (setq default-tab-width 4)
-(whitespace-mode 1)
+;; (global-whitespace-mode 1)
 ;-------------------------------------
 ; Emacs on Mac OS alt key problem
 
@@ -41,15 +41,15 @@
   "Return the file name of current buffer, using ~ if under home directory"
   (let
       ((fname (or
-	       (buffer-file-name (current-buffer))
-	       (buffer-name)))
+           (buffer-file-name (current-buffer))
+           (buffer-name)))
        (max-len 80))
     (when (string-match (getenv "HOME") fname)
       (setq fname (replace-match "~" t t fname)))
     (if (> (length fname) max-len)
-	(setq fname
-	      (concat "..."
-		      (substring fname (- (length fname) max-len)))))
+    (setq fname
+          (concat "..."
+              (substring fname (- (length fname) max-len)))))
     fname))
 (setq frame-title-format '("hc-Emacs@"(:eval (frame-title-string))))
 ;(setq frame-title-format "%b@emacs")
@@ -97,42 +97,39 @@ Move point to end-of-line ,if point was already at that position,
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
-
-(defun strip-convert-lines-into-one-big-string (beg end)
-"strip and convert selected lines into one big string which is copied into kill ring.
-When transient-mark-mode is enabled, if no region is active then only the
-current line is acted upon.
-
-If the region begins or ends in the middle of a line, that entire line is
-copied, even if the region is narrowed to the middle of a line.
-
-Current position is preserved."
-  (interactive "r")
-  (let (str (orig-pos (point-marker)))
-  (save-restriction
-    (widen)
-    (when (and transient-mark-mode (not (use-region-p)))
-      (setq beg (line-beginning-position)
-            end (line-beginning-position 2)))
-
-    (goto-char beg)
-    (setq beg (line-beginning-position))
-    (goto-char end)
-    (unless (= (point) (line-beginning-position))
-      (setq end (line-beginning-position 2)))
-
-    (goto-char beg)
-    (setq str (replace-regexp-in-string "[ \t]*\n" "" (replace-regexp-in-string "^[ \t]+" "" (buffer-substring-no-properties beg end))))
-    ;; (message "str=%s" str)
-    (kill-new str)
-    (goto-char orig-pos)))
-  )
-
-;(global-set-key (kbd "C-c C-y") 'strip-convert-lines-into-one-big-string)
-
 ;;rebind M-v, avoid it's binded to ns-paste-secondary in GUI on Mac
 (global-set-key (kbd "M-v") 'cua-scroll-down)
 
+(defun top-join-line ()
+  "Join the current line with the line beneath it."
+  (interactive)
+  (delete-indentation 1))
 
+(global-set-key (kbd "C-^") 'top-join-line)
+
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+(defun smart-open-line ()
+  "Insert an empty line after the current line.
+Position the cursor at its beginning, according to the current mode."
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+;; (global-set-key [(shift return)] 'smart-open-line)
+
+(defun smart-open-line-above ()
+  "Insert an empty line above the current line.
+Position the cursor at it's beginning, according to the current mode."
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (forward-line -1)
+  (indent-according-to-mode))
+
+;; (global-set-key [(control shift return)] 'smart-open-line-above)
+
+(global-set-key (kbd "C-o") 'smart-open-line)
+(global-set-key (kbd "m-o") 'smart-open-line-above)
 
 (provide 'init-misc)

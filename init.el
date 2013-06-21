@@ -45,6 +45,7 @@
 (require 'init-ibuffer)
 (require 'init-flymake)
 (require 'init-highlight-symbol)
+(require 'init-icicles)
 
 (require 'init-recentf)
 (require 'init-ido)
