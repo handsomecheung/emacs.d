@@ -57,6 +57,7 @@
 (require 'init-fonts)
 (require 'init-mmm)
 (require 'init-growl)
+(require 'init-eproject)
 
 (require 'init-editing-utils)
 
