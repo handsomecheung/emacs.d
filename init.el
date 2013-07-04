@@ -2,6 +2,7 @@
 ;;; a number of other files.
 
 (add-to-list 'load-path user-emacs-directory)
+(add-to-list 'load-path "~/.emacs.d/package")
 (require 'init-benchmarking) ;; Measure startup time
 
 ;;----------------------------------------------------------------------------
@@ -46,6 +47,7 @@
 (require 'init-flymake)
 (require 'init-highlight-symbol)
 (require 'init-tags)
+(require 'init-multiple-line-edit)
 
 ;; (require 'init-icicles)
 
