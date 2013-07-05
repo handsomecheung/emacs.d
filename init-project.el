@@ -14,5 +14,9 @@
 ;; (global-set-key (kbd "C-t") 'ido-find-file-in-tag-files)
 
 
+;------------------project-buffer-mode------------------------------
+(require 'project-buffer-mode)
+;------------------------------------------------------------------------------------------------------------
 
-(provide 'init-tags)
+
+(provide 'init-project)

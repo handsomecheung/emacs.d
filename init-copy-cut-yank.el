@@ -1,3 +1,9 @@
+;;----------browse-kill-ring------------------------------
+(require-package 'browse-kill-ring)
+(global-set-key (kbd "C-c k") 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+;;--------------------------------------------------------------------------------
+
 ;; Smart copy, if no region active, it simply copy the current whole line
 (defadvice kill-line (before check-position activate)
   (if (member major-mode

@@ -3,6 +3,7 @@
 
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path "~/.emacs.d/package")
+;; (add-to-list 'load-path "~/emacs.d/packages/tiny-tools")
 (require 'init-benchmarking) ;; Measure startup time
 
 ;;----------------------------------------------------------------------------
@@ -42,12 +43,15 @@
 (require 'init-proxies)
 (require 'init-dired)
 (require 'init-isearch)
+(require 'init-buffer)
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flymake)
 (require 'init-highlight-symbol)
-(require 'init-tags)
+(require 'init-project)
 (require 'init-multiple-line-edit)
+;; (require 'init-region)
+;; (require 'init-folding)
 
 ;; (require 'init-icicles)
 
@@ -57,7 +61,7 @@
 (require 'init-auto-complete)
 (require 'init-yasnippet)
 (require 'init-windows)
-;(require 'init-sessions)
+(require 'init-sessions)
 (require 'init-fonts)
 (require 'init-mmm)
 (require 'init-growl)
