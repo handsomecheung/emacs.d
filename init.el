@@ -52,6 +52,7 @@
 (require 'init-multiple-line-edit)
 ;; (require 'init-region)
 ;; (require 'init-folding)
+(require 'init-hide-region)
 
 ;; (require 'init-icicles)
 
