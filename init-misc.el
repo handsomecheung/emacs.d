@@ -130,6 +130,6 @@ Position the cursor at it's beginning, according to the current mode."
 ;; (global-set-key [(control shift return)] 'smart-open-line-above)
 
 (global-set-key (kbd "C-o") 'smart-open-line)
-(global-set-key (kbd "m-o") 'smart-open-line-above)
+(global-set-key (kbd "M-o") 'smart-open-line-above)
 
 (provide 'init-misc)
