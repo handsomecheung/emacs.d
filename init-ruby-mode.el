@@ -4,12 +4,17 @@
 (require-package 'rinari)
 (require-package 'ruby-compilation)
 (require-package 'inf-ruby)
-;(require-package 'robe)
+(require-package 'robe)
 (require-package 'yari)
 (require-package 'yaml-mode)
 (require-package 'flymake-yaml)
 (require-package 'haml-mode)
-(require-package 'mmm-mode)
+;; (require-package 'mmm-mode)
+(require-package 'rvm)
+(require-package 'ruby-electric)
+
+(rvm-use-default)
+
 
 
 (require-package 'textmate)
@@ -45,11 +50,22 @@
 ;;----------------------------------------------------------------------------
 ;; Ruby - robe
 ;;----------------------------------------------------------------------------
-;; (add-hook 'ruby-mode-hook 'robe-mode)
-;; (add-hook 'robe-mode-hook
-;;           (lambda ()
-;;             (add-to-list 'ac-sources 'ac-source-robe)
-;;             (set-auto-complete-as-completion-at-point-function)))
+(add-hook 'ruby-mode-hook 'robe-mode)
+(add-hook 'robe-mode-hook
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-robe)
+            (set-auto-complete-as-completion-at-point-function)))
+
+;;--------------------------------------------------------------------------------
+;; ruby-electric
+;;--------------------------------------------------------------------------------
+(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+(add-hook 'ruby-mode-hook '(lambda ()
+                               ;; make ruby-electric play nice with autopair
+                               (substitute-key-definition 'ruby-electric-curlies nil ruby-mode-map)
+                               (substitute-key-definition 'ruby-electric-matching-char nil ruby-mode-map)
+                               (substitute-key-definition 'ruby-electric-close-matching-char nil ruby-mode-map)))
+;;--------------------------------------------------------------------------------
 
 
 ;;----------------------------------------------------------------------------
@@ -58,6 +74,7 @@
 (defalias 'ri 'yari)
 
 (add-hook 'yaml-mode-hook 'flymake-yaml-load)
+
 
 ;;----------------------------------------------------------------------------
 ;; Ruby - erb

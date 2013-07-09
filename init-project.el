@@ -11,7 +11,7 @@
                 (ido-completing-read "Project file: "
                                      (tags-table-files) nil t)))))
 
-;; (global-set-key (kbd "C-t") 'ido-find-file-in-tag-files)
+(global-set-key (kbd "C-.") 'ido-find-file-in-tag-files)
 
 
 ;------------------project-buffer-mode------------------------------
