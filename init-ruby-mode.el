@@ -9,16 +9,31 @@
 (require-package 'yaml-mode)
 (require-package 'flymake-yaml)
 (require-package 'haml-mode)
-;; (require-package 'mmm-mode)
-(require-package 'rvm)
 (require-package 'ruby-electric)
+;; (require-package 'mmm-mode)
 
+(require-package 'rvm)
 (rvm-use-default)
-
 
 
 (require-package 'textmate)
 ;; (textmate-mode)
+
+
+;;------------------------------------------------------------
+;; ruby-block-mode
+;;------------------------------------------------------------
+(require-package 'ruby-block)
+(require 'ruby-block)
+;; (ruby-block-mode t)
+(add-hook 'ruby-mode-hook 'ruby-block-mode)
+;; ;; do overlay
+;; (setq ruby-block-highlight-toggle 'overlay)
+;; ;; display to minibuffer
+;; (setq ruby-block-highlight-toggle 'minibuffer)
+;; ;; display to minibuffer and do overlay
+(setq ruby-block-highlight-toggle t)
+;;------------------------------------------------------------
 
 
 
