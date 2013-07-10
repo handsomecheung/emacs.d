@@ -35,6 +35,15 @@
 (setq ruby-block-highlight-toggle t)
 ;;------------------------------------------------------------
 
+;;------------------------------------------------------------
+;; company-inf-ruby
+;;------------------------------------------------------------
+;; (require-package 'company-inf-ruby)
+;; (add-hook 'inf-ruby-mode-hook (lambda () (require 'company-inf-ruby)))
+;; (setq company-idle-delay 0.1)
+;; (setq company-minimum-prefix-length 2)
+;;------------------------------------------------------------
+
 
 
 (eval-after-load 'rinari
