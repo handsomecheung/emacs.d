@@ -1,3 +1,16 @@
+;;--------------------------------------------------------------------------------
+;; fiplr
+;; --------------------------------------------------------------------------------
+
+(require-package 'fiplr)
+
+(setq fiplr-root-markers '(".git" ".svn"))
+(setq fiplr-ignored-globs '((directories (".git" ".svn"))
+                            (files ("*.jpg" "*.png" "*.zip" "*~"))))
+
+(global-set-key (kbd "C-x f") 'fiplr-find-file)
+;; --------------------------------------------------------------------------------
+
 (defvar af-ido-flex-fuzzy-limit (* 2000 5))
 (defadvice ido-set-matches-1 (around my-ido-set-matches-1 activate)
   (let ((ido-enable-flex-matching (< (* (length (ad-get-arg 0)) (length ido-text))
