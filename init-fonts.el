@@ -1,10 +1,16 @@
 (require 'cl)
 
-;; 設置默認字體，我現在喜歡大一點的字體，養眼。
-;(set-default-font "Bitstream Vera Sans Mono-12")
+(set-language-environment 'UTF-8)
+
+;; (set-default-font "DejaVu Sans Mono")
+(set-default-font "WenQuanYi Zen Hei Mono")
+
 ;; 设置中文字体
-;(set-fontset-font "fontset-default"
-                  ;'unicode '("WenQuanYi Bitmap Song" . "unicode-bmp"))
+;; (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Bitmap Song" . "unicode-bmp"))
+(set-fontset-font "fontset-default" 'unicode '("WenQuanYi Zen Hei Mono" . "unicode-ttf"))
+
+
+
 
 
 (defun sanityinc/font-name-replace-size (font-name new-size)
