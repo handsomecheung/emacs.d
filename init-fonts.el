@@ -3,11 +3,11 @@
 (set-language-environment 'UTF-8)
 
 ;; (set-default-font "DejaVu Sans Mono")
-(set-default-font "WenQuanYi Zen Hei Mono")
+(set-default-font "WenQuanYi Zen Hei Mono-18")
 
 ;; 设置中文字体
 ;; (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Bitmap Song" . "unicode-bmp"))
-(set-fontset-font "fontset-default" 'unicode '("WenQuanYi Zen Hei Mono" . "unicode-ttf"))
+(set-fontset-font "fontset-default" 'unicode '("WenQuanYi Zen Hei Mono-18" . "unicode-ttf"))
 
 
 
