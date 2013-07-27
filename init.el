@@ -78,6 +78,7 @@
 (require 'init-autopair)
 (require 'init-quickrun)
 (require 'init-ecb)
+(require 'init-present)
 
 
 (require 'init-crontab)
