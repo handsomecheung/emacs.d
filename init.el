@@ -50,10 +50,11 @@
 (require 'init-highlight-symbol)
 (require 'init-project)
 (require 'init-multiple-line-edit)
-;; (require 'init-region)
-;; (require 'init-folding)
 (require 'init-hide-region)
 (require 'init-shell)
+;; (require 'init-autosave)
+;; (require 'init-region)
+;; (require 'init-folding)
 ;; (require 'init-icicles)
 
 (require 'init-recentf)

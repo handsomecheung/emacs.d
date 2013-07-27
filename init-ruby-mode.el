@@ -83,7 +83,7 @@
 ;;--------------------------------------------------------------------------------
 ;; ruby-electric
 ;;--------------------------------------------------------------------------------
-(add-hook 'ruby-mode-hook 'ruby-electric-mode)
+;; (add-hook 'ruby-mode-hook 'ruby-electric-mode)
 (add-hook 'ruby-mode-hook '(lambda ()
                                ;; make ruby-electric play nice with autopair
                                (substitute-key-definition 'ruby-electric-curlies nil ruby-mode-map)
