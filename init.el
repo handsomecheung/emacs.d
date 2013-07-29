@@ -78,7 +78,7 @@
 (require 'init-autopair)
 (require 'init-quickrun)
 (require 'init-ecb)
-(require 'init-present)
+;;; (require 'init-present)
 
 
 (require 'init-crontab)
@@ -154,3 +154,4 @@
 ;; no-byte-compile: t
 ;; End:
 (put 'set-goal-column 'disabled nil)
+(put 'erase-buffer 'disabled nil)
