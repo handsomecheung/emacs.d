@@ -3,6 +3,7 @@
 
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
+(require 'molokai-theme-kit)
 
 ;;------------------------------------------------------------------------------
 ;; Old-style color theming support (via color-theme.el)
@@ -45,7 +46,10 @@ ignored: use `custom-enabled-themes' instead."
 ;;------------------------------------------------------------------------------
 
 ;; If you don't customize it, this is the theme you get.
-(setq-default custom-enabled-themes '(sanityinc-solarized-light))
+
+(setq molokai-theme-kit t)
+;; (setq-default custom-enabled-themes '(sanityinc-solarized-light))
+(setq-default custom-enabled-themes '(molokai))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()
@@ -56,7 +60,10 @@ ignored: use `custom-enabled-themes' instead."
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (add-hook 'after-init-hook 'reapply-themes)
-
+(reapply-themes)
+;; (custom-theme-p 'sanityinc-solarized-dark)
+;; (custom-theme-p 'sanityinc-solarized-light)
+;; (custom-theme-p 'molokai)
 
 ;;------------------------------------------------------------------------------
 ;; Toggle between light and dark

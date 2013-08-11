@@ -3,6 +3,7 @@
 
 (add-to-list 'load-path user-emacs-directory)
 (add-to-list 'load-path "~/.emacs.d/package")
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;; (add-to-list 'load-path "~/emacs.d/packages/tiny-tools")
 (require 'init-benchmarking) ;; Measure startup time
 
