@@ -50,7 +50,6 @@
 (require 'init-flymake)
 (require 'init-highlight-symbol)
 (require 'init-project)
-(require 'init-multiple-line-edit)
 (require 'init-hide-region)
 (require 'init-shell)
 (require 'init-ace-jump)
