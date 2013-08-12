@@ -53,6 +53,7 @@
 (require 'init-multiple-line-edit)
 (require 'init-hide-region)
 (require 'init-shell)
+(require 'init-ace-jump)
 ;; (require 'init-autosave)
 ;; (require 'init-region)
 ;; (require 'init-folding)
