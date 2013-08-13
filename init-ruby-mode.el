@@ -4,7 +4,7 @@
 (require-package 'rinari)
 (require-package 'ruby-compilation)
 (require-package 'inf-ruby)
-(require-package 'robe)
+;; (require-package 'robe)
 (require-package 'yari)
 (require-package 'yaml-mode)
 (require-package 'flymake-yaml)
@@ -74,11 +74,11 @@
 ;;----------------------------------------------------------------------------
 ;; Ruby - robe
 ;;----------------------------------------------------------------------------
-(add-hook 'ruby-mode-hook 'robe-mode)
-(add-hook 'robe-mode-hook
-          (lambda ()
-            (add-to-list 'ac-sources 'ac-source-robe)
-            (set-auto-complete-as-completion-at-point-function)))
+;; (add-hook 'ruby-mode-hook 'robe-mode)
+;; (add-hook 'robe-mode-hook
+;;           (lambda ()
+;;             (add-to-list 'ac-sources 'ac-source-robe)
+;;             (set-auto-complete-as-completion-at-point-function)))
 
 ;;--------------------------------------------------------------------------------
 ;; ruby-electric

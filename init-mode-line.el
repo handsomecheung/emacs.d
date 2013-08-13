@@ -1,4 +1,4 @@
-;;; molokai-theme-kit.el
+;;; mode line: fork from molokai-theme-kit.el
 
 ;; Copyright (C) 2013 Huang Bin
 
@@ -91,4 +91,4 @@
                "%-" ;; fill with '-'
                ))
 
-(provide 'molokai-theme-kit)
+(provide 'init-mode-line)

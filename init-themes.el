@@ -3,7 +3,6 @@
 
 (require-package 'color-theme-sanityinc-solarized)
 (require-package 'color-theme-sanityinc-tomorrow)
-(require 'molokai-theme-kit)
 
 ;;------------------------------------------------------------------------------
 ;; Old-style color theming support (via color-theme.el)
@@ -47,7 +46,7 @@ ignored: use `custom-enabled-themes' instead."
 
 ;; If you don't customize it, this is the theme you get.
 
-(setq molokai-theme-kit t)
+(setq init-mode-line t)
 (setq-default custom-enabled-themes '(molokai))
 ;; (setq-default custom-enabled-themes '(sanityinc-solarized-light))
 

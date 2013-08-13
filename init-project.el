@@ -52,5 +52,37 @@
 ;------------------------------------------------------------------------------------------------------------
 
 
+;; ------------------------------------------------------------------------------------------
+;; get project root dir: fork from fiplr
+;; ------------------------------------------------------------------------------------------
+(defvar default-project-root-markers '(".git" ".svn" ".hg" ".bzr"))
+
+(defun project-root ()
+  "Get project root dir, other wise return nil"
+  (let ((cwd (if (buffer-file-name)
+                 (directory-file-name
+                  (file-name-directory (buffer-file-name)))
+               (file-truename "."))))
+    (or (find-project-root cwd default-project-root-markers)
+        cwd)))
+
+(defun find-project-root (path root-markers)
+  "Tail-recursive part of project root dir."
+  (let* ((this-dir (file-name-as-directory (file-truename path)))
+         (parent-dir (expand-file-name (concat this-dir "..")))
+         (system-root-dir (expand-file-name "/")))
+    (cond
+     ((project-root-p path root-markers) this-dir)
+     ((equal system-root-dir this-dir) nil)
+     (t (find-project-root parent-dir root-markers)))))
+
+(defun project-root-p (path root-markers)
+  "Predicate to check if the given directory is a git root dir."
+  (let ((dir (file-name-as-directory path)))
+    (cl-member-if (lambda (marker)
+                    (file-exists-p (concat dir marker)))
+                  root-markers)))
+;; ------------------------------------------------------------------------------------------
+
 
 (provide 'init-project)

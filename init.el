@@ -37,6 +37,7 @@
 
 (require 'init-frame-hooks)
 (require 'init-xterm)
+(require 'init-mode-line)
 (require 'init-themes)
 (require 'init-osx-keys)
 (require 'init-gui-frames)
@@ -53,6 +54,7 @@
 (require 'init-hide-region)
 (require 'init-shell)
 (require 'init-ace-jump)
+(require 'init-tags)
 ;; (require 'init-autosave)
 ;; (require 'init-region)
 ;; (require 'init-folding)
