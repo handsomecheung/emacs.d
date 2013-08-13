@@ -101,11 +101,12 @@
    `(mode-line ((t (:foreground ,molokai-fg
                                 :background ,molokai-base03
                                 :box nil))))
+
    `(mode-line-buffer-id ((t (:weight bold))))
+
    `(mode-line-inactive ((t (:foreground ,molokai-fg
                                          :background ,molokai-base02
                                          :box nil))))
-
    ;; search
    `(isearch ((t (:foreground ,molokai-dark :background ,molokai-wheat :weight bold))))
    `(isearch-fail ((t (:foreground ,molokai-wine :background ,molokai-darkwine))))

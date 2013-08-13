@@ -81,4 +81,72 @@
                      (ido-completing-read "git-svn command: " git-svn--available-commands nil t)))))
 
 
+;; ------------------------------------------------------------------------------------------
+;; get git branch name
+
+(defun git-root ()
+  "Get git root dir by .git."
+  (let ((cwd (if (buffer-file-name)
+                 (directory-file-name
+                  (file-name-directory (buffer-file-name)))
+               (file-truename "."))))
+    (or (find-git-root cwd '(".git"))
+        cwd)))
+
+(defun find-git-root (path root-markers)
+  "Tail-recursive part of git root dir."
+  (let* ((this-dir (file-name-as-directory (file-truename path)))
+         (parent-dir (expand-file-name (concat this-dir "..")))
+         (system-root-dir (expand-file-name "/")))
+    (cond
+     ((git-root-p path root-markers) this-dir)
+     ((equal system-root-dir this-dir) nil)
+     (t (find-git-root parent-dir root-markers)))))
+
+(defun git-root-p (path root-markers)
+  "Predicate to check if the given directory is a git root dir."
+  (let ((dir (file-name-as-directory path)))
+    (cl-member-if (lambda (marker)
+                    (file-exists-p (concat dir marker)))
+                  root-markers)))
+
+(defun defunkt-git-current-branch (root)
+  (let ((result) (branches
+         (split-string
+          (shell-command-to-string
+           (concat
+            "git --git-dir="
+            root
+            ".git branch --no-color"))
+          "\n" t)))
+    (while (and branches (null result))
+      (if (string-match "^\* \\(.+\\)" (car branches))
+          (setq result (match-string 1 (car branches)))
+        (setq branches (cdr branches))))
+    result))
+
+(defun git-branch-name () (defunkt-git-current-branch (git-root)))
+
+;; (defun defunkt-git-modeline ()
+;;   (interactive)
+;;   (let ((root (git-root)))
+;;     (when (file-directory-p (concat root ".git"))
+;;       (defunkt-set-mode-line (concat "Git: " (defunkt-git-current-branch root)))
+;;       (force-mode-line-update t))))
+
+;; (defun defunkt-set-mode-line (mode-line)
+;;   ;; this has to be built in...
+;;   (setq mode-line-format
+;;         (append
+;;          (butlast mode-line-format (- (length mode-line-format) 8))
+;;          (cons mode-line (nthcdr 8 mode-line-format)))))
+
+;; (add-hook 'find-file-hook 'defunkt-git-modeline)
+;; (add-hook 'dired-after-readin-hook 'defunkt-git-modeline)
+
+;; ------------------------------------------------------------------------------------------
+
+
+
+
 (provide 'init-git)

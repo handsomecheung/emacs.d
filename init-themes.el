@@ -48,8 +48,8 @@ ignored: use `custom-enabled-themes' instead."
 ;; If you don't customize it, this is the theme you get.
 
 (setq molokai-theme-kit t)
-;; (setq-default custom-enabled-themes '(sanityinc-solarized-light))
 (setq-default custom-enabled-themes '(molokai))
+;; (setq-default custom-enabled-themes '(sanityinc-solarized-light))
 
 ;; Ensure that themes will be applied even if they have not been customized
 (defun reapply-themes ()

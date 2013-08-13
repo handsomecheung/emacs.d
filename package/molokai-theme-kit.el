@@ -35,6 +35,7 @@
 ;; linum style
 ;;
 (require 'linum)
+(require 'init-git)
 (setq linum-format "%4d ")
 
 (toggle-indicate-empty-lines nil)
@@ -45,19 +46,6 @@
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
 (setq-default mode-line-format
               (list
-               ;; the buffer name; the file name as a tool tip
-               '(:eval (propertize "%b " 'face 'font-lock-keyword-face 'help-echo (buffer-file-name)))
-
-               ;; line and column
-               "(" (propertize "%l" 'face 'font-lock-type-face) "," (propertize "%c" 'face 'font-lock-type-face) ") "
-
-               ;; relative position, size of file
-               "[" (propertize "%p" 'face 'font-lock-constant-face) "/" (propertize "%I" 'face 'font-lock-constant-face) "] "
-
-               ;; the current major mode for the buffer.
-               "[" '(:eval (propertize "%m" 'face 'font-lock-string-face 'help-echo buffer-file-coding-system)) "] "
-
-
                "[" ;; insert vs overwrite mode, input-method in a tooltip
                '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
                                    'face 'font-lock-preprocessor-face
@@ -76,6 +64,21 @@
                                                   'face 'font-lock-type-face
                                                   'help-echo "Buffer is read-only"))))
                "] "
+
+               ;; the buffer name; the file name as a tool tip
+               '(:eval (propertize "%b " 'face 'font-lock-keyword-face 'help-echo (buffer-file-name)))
+
+               ;; line and column
+               "(" (propertize "%l" 'face 'font-lock-type-face) "," (propertize "%c" 'face 'font-lock-type-face) ") "
+
+               ;; relative position, size of file
+               "[" (propertize "%p" 'face 'font-lock-constant-face) "/" (propertize "%I" 'face 'font-lock-constant-face) "] "
+
+               '(:eval (when (git-branch-name)
+                         (concat "[Git: " (propertize (git-branch-name) 'face 'font-lock-preprocessor-face) "]")))
+
+               ;; the current major mode for the buffer.
+               "[" '(:eval (propertize "%m" 'face 'font-lock-string-face 'help-echo buffer-file-coding-system)) "] "
 
                ;; add the time, with the date and the emacs uptime in the tooltip
                '(:eval (propertize (format-time-string "%H:%M")
