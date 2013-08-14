@@ -77,15 +77,14 @@
 
                ;; show git branch
                '(:eval (when (git-branch-name)
-                         (concat "[Git: " (propertize (git-branch-name) 'face 'font-lock-preprocessor-face) "]")))
-
-               ;; the current major mode for the buffer.
-               "[" '(:eval (propertize "%m" 'face 'font-lock-string-face 'help-echo buffer-file-coding-system)) "] "
+                         (concat "[Git: " (propertize (git-branch-name) 'face 'font-lock-preprocessor-face) "] ")))
 
                ;; show project name
                '(:eval (when (project-name)
-                         (concat "[" (propertize (project-name) 'face 'font-lock-preprocessor-face) "]")))
+                         (concat "[" (propertize (project-name) 'face 'font-lock-preprocessor-face) "] ")))
 
+               ;; the current major mode for the buffer.
+               "[" '(:eval (propertize "%m" 'face 'font-lock-string-face 'help-echo buffer-file-coding-system)) "] "
 
                ;; add the time, with the date and the emacs uptime in the tooltip
                '(:eval (propertize (format-time-string "%H:%M")
