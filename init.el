@@ -100,6 +100,7 @@
 
 (require 'init-paredit)
 (require 'init-lisp)
+(require 'init-scheme)
 ;; (require 'init-slime)
 ;; (require 'init-clojure)
 ;; (require 'init-common-lisp)
