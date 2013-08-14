@@ -64,7 +64,7 @@
                   (file-name-directory (buffer-file-name)))
                (file-truename "."))))
     (or (find-project-root cwd default-project-root-markers)
-        cwd)))
+        nil)))
 
 (defun find-project-root (path root-markers)
   "Tail-recursive part of project root dir."
