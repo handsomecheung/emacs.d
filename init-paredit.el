@@ -11,8 +11,12 @@
 (eval-after-load 'paredit
   '(progn
      (diminish 'paredit-mode " Par")
-     (dolist (binding (list (kbd "C-<left>") (kbd "C-<right>")
-                            (kbd "C-M-<left>") (kbd "C-M-<right>")))
+     (dolist (binding (list
+                       ;; (kbd "C-<left>")
+                       ;; (kbd "C-<right>")
+                       (kbd "C-M-<left>")
+                       (kbd "C-M-<right>")
+                       ))
        (define-key paredit-mode-map binding nil))
 
      ;; Disable kill-sentence, which is easily confused with the kill-sexp
