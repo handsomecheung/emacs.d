@@ -36,6 +36,7 @@
 ;;
 (require 'linum)
 (require 'init-git)
+(require 'init-project)
 (setq linum-format "%4d ")
 
 (toggle-indicate-empty-lines nil)
@@ -74,11 +75,17 @@
                ;; relative position, size of file
                "[" (propertize "%p" 'face 'font-lock-constant-face) "/" (propertize "%I" 'face 'font-lock-constant-face) "] "
 
+               ;; show git branch
                '(:eval (when (git-branch-name)
                          (concat "[Git: " (propertize (git-branch-name) 'face 'font-lock-preprocessor-face) "]")))
 
                ;; the current major mode for the buffer.
                "[" '(:eval (propertize "%m" 'face 'font-lock-string-face 'help-echo buffer-file-coding-system)) "] "
+
+               ;; show project name
+               '(:eval (when (project-name)
+                         (concat "[" (propertize (project-name) 'face 'font-lock-preprocessor-face) "]")))
+
 
                ;; add the time, with the date and the emacs uptime in the tooltip
                '(:eval (propertize (format-time-string "%H:%M")

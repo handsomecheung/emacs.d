@@ -82,6 +82,15 @@
     (cl-member-if (lambda (marker)
                     (file-exists-p (concat dir marker)))
                   root-markers)))
+
+(defun project-name ()
+  "Get project name by project root"
+  (let ((root (project-root)))
+    (if root
+        (replace-regexp-in-string
+         "^.*/\\([^/]+\\)/$" "\\1"
+         root))))
+
 ;; ------------------------------------------------------------------------------------------
 
 
