@@ -47,7 +47,6 @@
         (end (line-end-position arg)))
     (copy-region-as-kill beg end)))
 
-
 (defun copy-word (&optional arg)
   "Copy words at point"
   (interactive "P")
@@ -55,6 +54,7 @@
         (end (progn (forward-word arg) (point))))
     (copy-region-as-kill beg end)))
 
+(global-set-key (kbd "C-c w") 'zap-to-char-save)
 
 (defun copy-paragraph (&optional arg)
   "Copy paragraphes at point"
