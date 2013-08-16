@@ -63,4 +63,24 @@
         (end (progn (forward-paragraph arg) (point))))
     (copy-region-as-kill beg end)))
 
+(defun zap-to-char-save (arg char)
+  "Zap to a character, but save instead of kill."
+  (interactive "p\ncZap to char: ")
+  (save-excursion
+    (zap-to-char arg char)
+    (yank)))
+
+(defun zap-up-to-char-save (arg char)
+  "Zap up to a character, but save instead of kill."
+  (interactive "p\ncZap up to char: ")
+  (save-excursion
+    (zap-up-to-char arg char)
+    (yank)))
+
+
+(global-set-key (kbd "C-M-z") 'zap-to-char-save)
+(global-set-key (kbd "C-M-Z") 'zap-up-to-char-save)
+
+
+
 (provide 'init-copy-cut-yank)
