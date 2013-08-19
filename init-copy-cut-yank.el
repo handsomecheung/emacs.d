@@ -65,14 +65,14 @@
 
 (defun zap-to-char-save (arg char)
   "Zap to a character, but save instead of kill."
-  (interactive "p\ncZap to char: ")
+  (interactive "p\ncZap to char save: ")
   (save-excursion
     (zap-to-char arg char)
     (yank)))
 
 (defun zap-up-to-char-save (arg char)
   "Zap up to a character, but save instead of kill."
-  (interactive "p\ncZap up to char: ")
+  (interactive "p\ncZap up to char save: ")
   (save-excursion
     (zap-up-to-char arg char)
     (yank)))
