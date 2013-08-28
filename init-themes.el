@@ -59,7 +59,6 @@ ignored: use `custom-enabled-themes' instead."
   (custom-set-variables `(custom-enabled-themes (quote ,custom-enabled-themes))))
 
 (add-hook 'after-init-hook 'reapply-themes)
-(reapply-themes)
 ;; (custom-theme-p 'sanityinc-solarized-dark)
 ;; (custom-theme-p 'sanityinc-solarized-light)
 ;; (custom-theme-p 'molokai)
