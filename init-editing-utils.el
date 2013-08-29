@@ -127,9 +127,9 @@
 
 ;;; autopair messes with multiple cursors, so disable it
 (add-hook 'multiple-cursors-mode-enabled-hook (lambda ()
-                                                (autopair-mode nil)))
+                                                (autopair-global-mode -1)))
 (add-hook 'multiple-cursors-mode-disabled-hook (lambda ()
-                                                (autopair-mode t)))
+                                                (autopair-global-mode t)))
 
 ;;; Thanks to tkf on
 ;;; https://github.com/magnars/multiple-cursors.el/issues/19
