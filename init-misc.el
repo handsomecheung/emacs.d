@@ -211,12 +211,30 @@ Move point to end-of-line ,if point was already at that position,
 ;;rebind M-v, avoid it's binded to ns-paste-secondary in GUI on Mac
 (global-set-key (kbd "M-v") 'cua-scroll-down)
 
-(defun top-join-line ()
-  "Join the current line with the line beneath it."
-  (interactive)
-  (delete-indentation 1))
+(defun smart-join-line (region? start end up-or-down)
+  "Join the lines in region, if no region, join current line."
+  (if region?
+      (progn (goto-char start)
+             (let ((lines (count-lines start end)))
+               (while (> lines 0)
+                 (delete-indentation 1)
+                 (setq lines (- lines 1))))
+             (deactivate-mark))
+    (delete-indentation up-or-down)))
 
-(global-set-key (kbd "C-^") 'top-join-line)
+(defun smart-join-line-up (start end)
+  "smart join lines up"
+  (interactive "r")
+  (smart-join-line (use-region-p) start end 1))
+
+(defun smart-join-line-down (start end)
+  "smart join lines up"
+  (interactive "r")
+  (smart-join-line (use-region-p) start end nil))
+
+(global-set-key (kbd "C-^") 'smart-join-line-up)
+(global-set-key (kbd "M-^") 'smart-join-line-down)
+
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
