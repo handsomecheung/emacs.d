@@ -16,6 +16,7 @@
   (let ((ido-enable-flex-matching (< (* (length (ad-get-arg 0)) (length ido-text))
                                      af-ido-flex-fuzzy-limit)))
     ad-do-it))
+
 (defun ido-find-file-in-tag-files ()
   (interactive)
   (save-excursion
@@ -25,6 +26,9 @@
                                      (tags-table-files) nil t)))))
 
 (global-set-key (kbd "C-,") 'ido-find-file-in-tag-files)
+
+;; (let ((enable-recursive-minibuffers t))
+;;   (find-file (expand-file-name (ido-completing-read "Project file:" '("spec/models/user_login_info_spec.rb" "spec/models/user_new_spec.rb") nil t) "/Users/handsomecheung/Dropbox/workspace/tap4fun/project_t4f/kings-server/")))
 
 
 ;------------------project-buffer-mode------------------------------
