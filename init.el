@@ -35,7 +35,7 @@
 (require-package 'scratch)
 (require-package 'mwe-log-commands)
 
-;; (require 'init-evil)
+(require 'init-evil)
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-mode-line)
