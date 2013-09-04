@@ -90,7 +90,7 @@
                                                          'help-echo "Buffer has been modified") "]"))))
 
                ;; the buffer name; the file name as a tool tip
-               '(:eval (propertize "%b " 'face 'font-lock-keyword-face 'help-echo (buffer-file-name)))
+               '(:eval (propertize " %b " 'face 'font-lock-keyword-face 'help-echo (buffer-file-name)))
 
                ;; line and column
                "(" (propertize "%l" 'face 'font-lock-type-face) "," (propertize "%c" 'face 'font-lock-type-face) ") "
