@@ -2,7 +2,7 @@
 (evil-mode 1)
 (setq evil-default-cursor t)
 (define-key evil-emacs-state-map (kbd "C-.") 'evil-execute-in-normal-state)
-(require 'init-evil-mode-line)
+;;(require 'init-evil-mode-line)
 ; 设置使用C-d作为ESC按键
 ;; (define-key evil-insert-state-map (kbd "C-d") 'evil-change-to-previous-state)
 ;; (define-key evil-normal-state-map (kbd "C-d") 'evil-force-normal-state)
