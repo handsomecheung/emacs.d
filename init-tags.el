@@ -5,7 +5,7 @@
   (interactive)
   (message "building project tags")
   (let ((root (project-root)))
-    (shell-command (concat "/usr/local/bin/ctags -e -R --extra=+fq --exclude=db --exclude=test --exclude=public -f " root "TAGS " root)))
+    (shell-command (concat "ctags -e -R --extra=+fq --exclude=db --exclude=test --exclude=public -f " root "TAGS " root)))
   (visit-project-tags)
   (message "tags built successfully"))
 
