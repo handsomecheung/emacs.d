@@ -12,8 +12,8 @@
  "拼音" "汉字拼音输入法" "py.txt")
 
 ;; 用 ; 暂时输入英文
-(require 'eim-extra)
-(global-set-key ";" 'eim-insert-ascii)
+;(require 'eim-extra)
+;(global-set-key ";" 'eim-insert-ascii)
 
 (autoload 'eim-use-package "eim" "chinese-py")
 ;;(setq eim-punc-translate-p nil)         ; use English punctuation
@@ -27,8 +27,8 @@
 ;;             (define-key eim-mode-map "," 'eim-previous-page)
 ;;             (define-key eim-mode-map "." 'eim-next-page)))
 
-(add-hook 'find-file-hook
-          (lambda ()(progn (set-input-method 'eim-py)
-                           (toggle-input-method nil)
-                           )))
+;; (set input-activate nil)
+;(add-hook 'find-file-hook
+          ;(lambda ()(progn (set-input-method 'eim-py)
+                           ;(if (and (boundp input-activate) (eq input-activate t)) (set input-activate nil)))))
 (provide 'init-eim)
