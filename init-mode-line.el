@@ -45,29 +45,52 @@
 ;; mode-line
 ;;
 ;; http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
+
+(require-package 'evil)
+(defun emacs-or-vim? ()
+  "emacs mode or vim mode."
+  (if (evil-emacs-state-p) "Emacs" "Vim"))
+
+(defun show-vim-state ()
+  "show vim(evil) state: normal, insert, replace, and visual type."
+  (cond ((evil-normal-state-p) "Normal")
+        ((evil-insert-state-p) "Insert")
+        ((evil-replace-state-p) "Replace")
+        ((evil-visual-state-p)
+         (let ((visual-type (evil-visual-type)))
+           (cond ((string= visual-type "line") "Visual Line")
+                 ((string= visual-type "inclusive") "Visual")
+                 ((string= visual-type "block") "Visual Block"))))))
+
+(defun show-emacs-state ()
+  "show emacs state: Ovr or Ins"
+  (if overwrite-mode "Ovr" "Ins"))
+
+(defun show-edit-state ()
+  (if (evil-emacs-state-p) (show-emacs-state) (show-vim-state)))
+
 (setq-default mode-line-format
               (list
-               "[" ;; insert vs overwrite mode, input-method in a tooltip
-               '(:eval (propertize (if overwrite-mode "Ovr" "Ins")
+               "[" '(:eval (propertize (emacs-or-vim?)
                                    'face 'font-lock-preprocessor-face
-                                   'help-echo (concat "Buffer is in "
-                                                      (if overwrite-mode "overwrite" "insert") " mode")))
+                                   'help-echo "emacs or vim state")) "]"
+               "[" '(:eval (propertize (show-edit-state)
+                                   'face 'font-lock-preprocessor-face
+                                   'help-echo "edit state")) "]"
 
                ;; was this buffer modified since the last save?
-               '(:eval (when (buffer-modified-p)
-                         (concat ","  (propertize "Mod"
-                                                  'face 'font-lock-warning-face
-                                                  'help-echo "Buffer has been modified"))))
-
                ;; is this buffer read-only?
-               '(:eval (when buffer-read-only
-                         (concat ","  (propertize "RO"
+               '(:eval (if buffer-read-only
+                         (concat "["  (propertize "RO"
                                                   'face 'font-lock-type-face
-                                                  'help-echo "Buffer is read-only"))))
-               "] "
+                                                  'help-echo "Buffer is read-only") "]")
+
+                         (if (buffer-modified-p) (concat "[" (propertize "Mod"
+                                                         'face 'font-lock-warning-face
+                                                         'help-echo "Buffer has been modified") "]"))))
 
                ;; the buffer name; the file name as a tool tip
-               '(:eval (propertize "%b " 'face 'font-lock-keyword-face 'help-echo (buffer-file-name)))
+               '(:eval (propertize " %b " 'face 'font-lock-keyword-face 'help-echo (buffer-file-name)))
 
                ;; line and column
                "(" (propertize "%l" 'face 'font-lock-type-face) "," (propertize "%c" 'face 'font-lock-type-face) ") "

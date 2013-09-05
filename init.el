@@ -35,6 +35,7 @@
 (require-package 'scratch)
 (require-package 'mwe-log-commands)
 
+(require 'init-evil)
 (require 'init-frame-hooks)
 (require 'init-xterm)
 (require 'init-mode-line)
@@ -69,6 +70,7 @@
 (require 'init-fonts)
 (require 'init-mmm)
 (require 'init-growl)
+(require 'init-eim)
 ;; (require 'init-eproject)
 (require 'init-editing-utils)
 (require 'init-darcs)
