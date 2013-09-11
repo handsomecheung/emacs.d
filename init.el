@@ -15,6 +15,7 @@
 (defconst *is-carbon-emacs* (eq window-system 'mac))
 (defconst *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
 
+(setq debug-on-error t)
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
@@ -95,6 +96,7 @@
 (require 'init-css)
 ;(require 'init-haml)
 (require 'init-python-mode)
+(require 'init-lua-mode)
 ;(require 'init-haskell)
 (require 'init-ruby-mode)
 (require 'init-rails)
@@ -116,7 +118,6 @@
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
-;(require-package 'lua-mode)
 (require-package 'htmlize)
 (require-package 'dsvn)
 (when *is-a-mac*
