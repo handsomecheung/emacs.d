@@ -37,6 +37,7 @@
 (require 'linum)
 (require 'init-git)
 (require 'init-project)
+(require-package 'window-number)
 (setq linum-format "%4d ")
 
 (toggle-indicate-empty-lines nil)
@@ -108,6 +109,9 @@
 
                ;; the current major mode for the buffer.
                "[" '(:eval (propertize "%m" 'face 'font-lock-string-face 'help-echo buffer-file-coding-system)) "] "
+
+               ;; show window number in mode line
+               "-" '(:eval (propertize (number-to-string (window-number)) 'face 'font-lock-warning-face)) "- "
 
                ;; add the time, with the date and the emacs uptime in the tooltip
                '(:eval (propertize (format-time-string "%H:%M")
