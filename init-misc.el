@@ -77,6 +77,19 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 
 ;; --------------------------------------------------------------------------------
 
+;; --------------------------------------------------------------------------------
+;;  default dir
+;; --------------------------------------------------------------------------------
+(defun shell-command-to-string-no-newline(command)
+  (substring (shell-command-to-string command) 0 -1))
+
+(let ((server-name (shell-command-to-string-no-newline "uname -n")))
+  (cond ((equalp server-name "hc-macbook") (setq default-directory "~/tap4fun/project_t4f"))
+        ((equalp server-name "hc-server") (setq default-directory "~/"))
+        ((setq default-directory "~/"))))
+
+;; --------------------------------------------------------------------------------
+
 
 
 
