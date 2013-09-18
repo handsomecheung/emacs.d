@@ -18,6 +18,7 @@ cookies
 /ac-comphist.dat
 \#*
 /elpa
+/sql
 /swank
 /.mc-lists.el
 /var
