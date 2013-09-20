@@ -19,6 +19,7 @@
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
+(require 'init-common-function)
 (require 'init-compat)
 (require 'init-utils)
 (require 'init-site-lisp) ;; Must come before elpa, as it may provide package.el
@@ -115,7 +116,6 @@
 (require 'init-marmalade)
 (require 'init-misc)
 
-(require 'init-common-function)
 
 ;; Extra packages which don't require any configuration
 
