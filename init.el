@@ -116,6 +116,7 @@
 (require 'init-marmalade)
 (require 'init-misc)
 
+(require 'init-tap4fun)
 
 ;; Extra packages which don't require any configuration
 
