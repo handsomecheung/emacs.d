@@ -80,6 +80,16 @@
                             (string-to-number
                              (read-string "Choose a Server: "))))))))
 
+(defun t4f-exit-exist-sqli-buffer ()
+  "exit exist the default SQLi buffer."
+  (let ((default-buffer (sql-find-sqli-buffer)))
+    (if (not (null default-buffer))
+        (progn
+          (sql-set-product 'mysql)
+          (setq sql-buffer default-buffer)
+          (run-hooks 'sql-set-sqli-hook)
+          (sql-send-string "exit")))))
+
 (defun t4f-ke-mysql (key-word)
   "connect ke's mysql, choose a server"
   (interactive "sEnter key word to Connect: \n")
@@ -89,6 +99,7 @@
          (default-db (gethash "db" servers))
          (db-user (t4f-db-user))
          (db-passwd (t4f-db-passwd)))
-    (sql-db 'mysql ip db-user db-passwd default-db 3306)))
+    (progn (t4f-exit-exist-sqli-buffer)
+           (sql-db 'mysql ip db-user db-passwd default-db 3306))))
 
 (provide 'init-tap4fun)
