@@ -8,7 +8,6 @@
   "get db analysis username by .netrc"
   (netrc-get (netrc-machine (netrc-parse "~/.netrc") "db_analysis.tap4fun.com") "password"))
 
-
 (defun t4f-parse-server (server-str)
   "get server name, ip, port by server str"
   (let* ((item-list (split-string server-str ":::"))
@@ -76,7 +75,6 @@
                (t4f-get-raw-server-list key-word))))
     (progn
       (t4f-show-server-list server-list)
-      (insert (number-to-string (length server-list)))
       (t4f-parse-server
        (get-line-string (if (= (length server-list) 1) 1
                             (string-to-number
@@ -88,7 +86,7 @@
   (let* ((servers (t4f-choose-server key-word))
          ;; (name (gethash "name" servers))
          (ip (gethash "ip" servers))
-         (default-db (gethash "name" servers))
+         (default-db (gethash "db" servers))
          (db-user (t4f-db-user))
          (db-passwd (t4f-db-passwd)))
     (sql-db 'mysql ip db-user db-passwd default-db 3306)))
