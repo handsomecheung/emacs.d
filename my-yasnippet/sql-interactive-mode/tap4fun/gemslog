@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: gems-log
+# key: gemslog
+# --
+select gemslogs.gem_use_type, gemslogs.sub_type, gemslogs.\`desc\`, gemslogs.gems_amount, gemslogs.balance_total, gemslogs.created_at from gems_logs inner join users on gemslogs.user_id = user.id where users.username = '${1:}';$0

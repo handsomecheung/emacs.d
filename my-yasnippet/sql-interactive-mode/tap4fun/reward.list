@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: activity reward list
+# key: reward
+# --
+select act_key, scheduled_reward_at, publish, reward_at, \`desc\` from activity_rewards;

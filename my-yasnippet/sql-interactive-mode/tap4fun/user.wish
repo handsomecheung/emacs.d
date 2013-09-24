@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: user wish count
+# key: user
+# --
+select login_days_count, got_reward_count, last_login_day from users where username = '${1:}';$0

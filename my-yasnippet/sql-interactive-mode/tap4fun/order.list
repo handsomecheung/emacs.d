@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: order list
+# key: order
+# --
+select orders.price, orders.created_at from orders inner join users on users.id = orders.user_id where orders.is_validated = 1 and  users.username = '${1:}';$0

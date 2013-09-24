@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: activity reward detail
+# key: reward
+# --
+select scheduled_reward_at, publish, reward_at, \`desc\`, note from activity_rewards where act_key = '${1:}';$0

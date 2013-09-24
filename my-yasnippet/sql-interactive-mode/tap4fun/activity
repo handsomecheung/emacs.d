@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: activity list
+# key: activity
+# --
+select locale, title, sign, banner_type, start_time from activities where created_at > '2013-${1:09}-01';$0
