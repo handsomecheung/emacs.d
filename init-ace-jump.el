@@ -1,5 +1,6 @@
 (require-package 'ace-jump-mode)
 (require-package 'ace-jump-buffer)
+(setq ace-jump-mode-scope 'global)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
 ;;If you also use viper mode:
