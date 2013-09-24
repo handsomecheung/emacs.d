@@ -82,13 +82,15 @@
 
 (defun t4f-exit-exist-sqli-buffer ()
   "exit exist the default SQLi buffer."
-  (let ((default-buffer (sql-find-sqli-buffer)))
-    (if (not (null default-buffer))
-        (progn
-          (sql-set-product 'mysql)
-          (setq sql-buffer default-buffer)
-          (run-hooks 'sql-set-sqli-hook)
-          (sql-send-string "exit")))))
+  (progn
+    (sql-set-product 'mysql)
+    (let ((default-buffer (sql-find-sqli-buffer)))
+      (if (not (null default-buffer))
+          (progn
+            (setq sql-buffer default-buffer)
+            (run-hooks 'sql-set-sqli-hook)
+            (sql-send-string "exit")
+            (sleep-for 2))))))
 
 (defun t4f-ke-mysql (key-word)
   "connect ke's mysql, choose a server"
