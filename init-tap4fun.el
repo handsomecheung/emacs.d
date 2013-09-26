@@ -101,7 +101,8 @@
          (default-db (gethash "db" servers))
          (db-user (t4f-db-user))
          (db-passwd (t4f-db-passwd)))
-    (progn (t4f-exit-exist-sqli-buffer)
-           (sql-db 'mysql ip db-user db-passwd default-db 3306))))
+    (progn
+      (t4f-exit-exist-sqli-buffer)
+      (sql-db 'mysql ip db-user db-passwd default-db 3306))))
 
 (provide 'init-tap4fun)

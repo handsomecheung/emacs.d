@@ -38,6 +38,7 @@
     (flet ((sql-get-login (&rest what)))
       (sql-product-interactive sql-product))))
 
+(add-to-list 'same-window-regexps "\\*SQL\\*")
 ;; (setq sql-connection-alist
 ;; '((pool-a
 ;; (sql-product 'mysql)
