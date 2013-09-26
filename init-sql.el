@@ -39,6 +39,25 @@
       (sql-product-interactive sql-product))))
 
 (add-to-list 'same-window-regexps "\\*SQL\\*")
+
+
+;; -----------------------------------------------------
+;; sql transform
+;; -----------------------------------------------------
+(require 'sql-transform)
+
+(define-key sql-mode-map (kbd "C-c u") 'sql-to-update)
+(define-key sql-mode-map (kbd "C-c s") 'sql-to-select)
+(define-key sql-mode-map (kbd "C-c i") 'sql-to-insert)
+(define-key sql-mode-map (kbd "C-c d") 'sql-to-delete)
+
+(define-key sql-interactive-mode-map (kbd "C-c u") 'sql-to-update)
+(define-key sql-interactive-mode-map (kbd "C-c s") 'sql-to-select)
+(define-key sql-interactive-mode-map (kbd "C-c i") 'sql-to-insert)
+(define-key sql-interactive-mode-map (kbd "C-c d") 'sql-to-delete)
+
+;; -----------------------------------------------------
+
 ;; (setq sql-connection-alist
 ;; '((pool-a
 ;; (sql-product 'mysql)
