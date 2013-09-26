@@ -86,16 +86,31 @@
 ;; -----------------------------------------------------
 (require 'sql-transform)
 
-(define-key sql-mode-map (kbd "C-c u") 'sql-to-update)
-(define-key sql-mode-map (kbd "C-c s") 'sql-to-select)
-(define-key sql-mode-map (kbd "C-c i") 'sql-to-insert)
-(define-key sql-mode-map (kbd "C-c d") 'sql-to-delete)
+(add-hook 'sql-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c u") 'sql-to-update))))
+(add-hook 'sql-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c s") 'sql-to-select))))
+(add-hook 'sql-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c i") 'sql-to-insert))))
+(add-hook 'sql-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c d") 'sql-to-delete))))
 
-(define-key sql-interactive-mode-map (kbd "C-c u") 'sql-to-update)
-(define-key sql-interactive-mode-map (kbd "C-c s") 'sql-to-select)
-(define-key sql-interactive-mode-map (kbd "C-c i") 'sql-to-insert)
-(define-key sql-interactive-mode-map (kbd "C-c d") 'sql-to-delete)
-
+(add-hook 'sql-interactive-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c u") 'sql-to-update))))
+(add-hook 'sql-interactive-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c i") 'sql-to-insert))))
+(add-hook 'sql-interactive-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c s") 'sql-to-select))))
+(add-hook 'sql-interactive-mode-hook
+      (function (lambda ()
+              (local-set-key (kbd "C-c d") 'sql-to-delete))))
 ;; -----------------------------------------------------
 
 ;; (setq sql-connection-alist
