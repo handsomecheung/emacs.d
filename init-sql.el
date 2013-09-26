@@ -18,15 +18,50 @@
         (rval 'sql-product))
     (if (symbol-value rval)
         (let* ((dir-name "~/.emacs.d/sql/") (filename
-                  (concat dir-name
-                          (symbol-name (symbol-value rval))
-                          "-history.sql")))
+                                             (concat dir-name
+                                                     (symbol-name (symbol-value rval))
+                                                     "-history.sql")))
           (progn (make-directory dir-name 1) (set (make-local-variable lval) filename)))
       (error
        (format "SQL history will not be saved because %s is nil"
                (symbol-name rval))))))
 
 (add-hook 'sql-interactive-mode-hook 'my-sql-save-history-hook)
+
+;; --------------------------------------------------------------------------------
+;; Add newline to beginning of OUTPUT
+;; --------------------------------------------------------------------------------
+(defvar sql-last-prompt-pos 1
+  "position of last prompt when added recording started")
+(make-variable-buffer-local 'sql-last-prompt-pos)
+(put 'sql-last-prompt-pos 'permanent-local t)
+
+(defun sql-add-newline-first (output)
+  "Add newline to beginning of OUTPUT for `comint-preoutput-filter-functions'
+    This fixes up the display of queries sent to the inferior buffer
+    programatically."
+  (let ((begin-of-prompt
+         (or (and comint-last-prompt-overlay
+                  ;; sometimes this overlay is not on prompt
+                  (save-excursion
+                    (goto-char (overlay-start comint-last-prompt-overlay))
+                    (looking-at-p comint-prompt-regexp)
+                    (point)))
+             1)))
+    (if (> begin-of-prompt sql-last-prompt-pos)
+        (progn
+          (setq sql-last-prompt-pos begin-of-prompt)
+          (concat "\n" output))
+      output)))
+
+(defun sqli-add-hooks ()
+  "Add hooks to `sql-interactive-mode-hook'."
+  (add-hook 'comint-preoutput-filter-functions
+            'sql-add-newline-first))
+
+(add-hook 'sql-interactive-mode-hook 'sqli-add-hooks)
+
+;; --------------------------------------------------------------------------------
 
 (defun sql-db (product server user passwd db port)
   (let ((sql-product product)
