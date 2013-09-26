@@ -40,6 +40,11 @@
 
 (add-to-list 'same-window-regexps "\\*SQL\\*")
 
+(require 'sql-completion)
+(setq sql-interactive-mode-hook
+      (lambda ()
+        (define-key sql-interactive-mode-map "\t" 'comint-dynamic-complete)
+        (sql-mysql-completion-init)))
 
 ;; -----------------------------------------------------
 ;; sql transform
