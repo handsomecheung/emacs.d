@@ -2,4 +2,4 @@
 # name: item username itemkey
 # key: item
 # --
-select log_item_streams.\`count\`,  log_item_streams.change_type, log_item_streams.get_from, log_item_streams.total_items, log_item_streams.created_at from log_item_streams inner join users on log_item_streams.user_id = users.id where users.username = '${1:}' and item_key = '${2:supply_trunk_s}';$0
+select log_item_streams.item_key, log_item_streams.\`count\`, log_item_streams.change_type, log_item_streams.get_from, log_item_streams.total_items, log_item_streams.created_at from log_item_streams inner join users on log_item_streams.user_id = users.id where users.username = '${1:}' and item_key = '${2:supply_trunk_s}';$0

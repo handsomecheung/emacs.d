@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: alliance name
+# key: alliance
+# --
+select alliances.name from users inner join alliance_memberships on alliance_memberships.user_id = users.id inner join alliances on alliances.id = alliance_memberships.alliance_id where users.username = '${1:}';$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: activity reward list rlist
+# key: reward
+# --
+select activity_reward_lists.act_key, activity_reward_lists.reward_at, activity_reward_lists.receive_type from activity_reward_lists inner join users on users.id = activity_reward_lists.user_id where users.username = '${1:}';$0
