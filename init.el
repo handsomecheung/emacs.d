@@ -15,7 +15,8 @@
 (defconst *is-carbon-emacs* (eq window-system 'mac))
 (defconst *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
 
-;;; (setq debug-on-error t)
+;; (setq debug-on-error t)
+;; (setq eval-expression-debug-on-error t)
 ;;----------------------------------------------------------------------------
 ;; Bootstrap config
 ;;----------------------------------------------------------------------------
@@ -80,6 +81,7 @@
 (require 'init-comment)
 (require 'init-copy-cut-yank)
 (require 'init-autopair)
+(require 'init-smartparens)
 (require 'init-quickrun)
 ;; (require 'init-ecb)
 ;;; (require 'init-present)
