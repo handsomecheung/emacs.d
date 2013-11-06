@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: daily_limit
+# key: daily_limit
+# --
+select daily_limits.\`key\`, daily_limits.\`value\`, daily_limits.created_at from daily_limits inner join users on users.id = daily_limits.user_id where users.username = '${1:}' and daily_limits.\`key\` = '${2:}';$0

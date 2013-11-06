@@ -40,6 +40,7 @@
   (cond ((= port 90) "kings_2")
         ((= port 92) "kings_3")
         ((= port 94) "kings_4")
+        ((= port 99) "gateway")
         (t "kings")))
 
 (defun t4f-show-server-list (server-list)
@@ -50,13 +51,20 @@
            (erase-buffer)
            (insert-list-newline server-list))))
 
+;; (defun t4f-get-raw-server-str (key-word)
+;;   "get server list string using shell cmd with given key word"
+;;   (replace-regexp-in-string "\\\\n" "\n"
+;;                             (replace-regexp-in-string "\\\\n\n$" ""
+;;                              (shell-command-to-string
+;;                               (concat "zsh ~/tap4fun/script/ke-server-list.sh "
+;;                                       key-word)))))
+
 (defun t4f-get-raw-server-str (key-word)
   "get server list string using shell cmd with given key word"
-  (replace-regexp-in-string "\\\\n" "\n"
-                            (replace-regexp-in-string "\\\\n\n$" ""
-                             (shell-command-to-string
-                              (concat "sh ~/tap4fun/script/ke-server-list.sh "
-                                      key-word)))))
+  (replace-regexp-in-string "\n$" ""
+                            (shell-command-to-string
+                             (concat "zsh ~/tap4fun/script/ke-server-list.sh "
+                                     key-word))))
 
 (defun t4f-get-raw-server-list (key-word)
   "get server list"
@@ -82,15 +90,16 @@
 
 (defun t4f-exit-exist-sqli-buffer ()
   "exit exist the default SQLi buffer."
-  (progn
-    (sql-set-product 'mysql)
-    (let ((default-buffer (sql-find-sqli-buffer)))
-      (if (not (null default-buffer))
-          (progn
-            (setq sql-buffer default-buffer)
-            (run-hooks 'sql-set-sqli-hook)
-            (sql-send-string "exit")
-            (sleep-for 2))))))
+  (if (fboundp 'sql-set-product)
+      (progn
+        (sql-set-product 'mysql)
+        (let ((default-buffer (sql-find-sqli-buffer)))
+          (if (not (null default-buffer))
+              (progn
+                (setq sql-buffer default-buffer)
+                (run-hooks 'sql-set-sqli-hook)
+                (sql-send-string "exit")
+                (sleep-for 2)))))))
 
 (defun t4f-ke-mysql (key-word)
   "connect ke's mysql, choose a server"
@@ -104,5 +113,7 @@
     (progn
       (t4f-exit-exist-sqli-buffer)
       (sql-db 'mysql ip db-user db-passwd default-db 3306))))
+
+;;; (sql-db 'mysql "54.200.53.230" (t4f-db-user) (t4f-db-passwd) "kings" 3306)
 
 (provide 'init-tap4fun)

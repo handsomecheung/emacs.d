@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: user server info
+# key: user
+# --
+select servers.server_name from users inner join servers on servers.server_root_url = users.server where users.username = '${1:}';$0

@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rune.fragment
+# key: rune
+# --
+select log_rune_info_streams.rune_key, log_rune_info_streams.change_type, log_rune_info_streams.sub_type, log_rune_info_streams.\`count\`, log_rune_info_streams.created_at from log_rune_info_streams inner join users on users.id = log_rune_info_streams.user_id where log_rune_info_streams.rune_key = 'fragment' and users.username = '${1:}';$0

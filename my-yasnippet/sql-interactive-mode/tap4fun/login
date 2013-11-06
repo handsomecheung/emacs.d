@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: login record
+# key: login
+# --
+select user_daily_login_records.* from user_daily_login_records inner join users on users.id = user_daily_login_records.user_id where users.username = '${1:}';$0

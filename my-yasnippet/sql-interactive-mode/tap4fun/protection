@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: protection log
+# key: protection
+# --
+
+select protection_logs.* from protection_logs inner join cities on cities.id = protection_logs.city_id inner join users on cities.owner_id = users.id where users.username = '${1:}';$0
