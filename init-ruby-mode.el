@@ -25,14 +25,15 @@
 ;;------------------------------------------------------------
 (require-package 'ruby-block)
 (require 'ruby-block)
-;; (ruby-block-mode t)
 (add-hook 'ruby-mode-hook 'ruby-block-mode)
+(setq ruby-block-highlight-toggle t)
+
+;; (ruby-block-mode t)
 ;; ;; do overlay
 ;; (setq ruby-block-highlight-toggle 'overlay)
 ;; ;; display to minibuffer
 ;; (setq ruby-block-highlight-toggle 'minibuffer)
 ;; ;; display to minibuffer and do overlay
-(setq ruby-block-highlight-toggle t)
 ;;------------------------------------------------------------
 
 ;;------------------------------------------------------------
