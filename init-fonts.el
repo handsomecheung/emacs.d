@@ -12,9 +12,16 @@
 ;; set font size to 18
 (set-face-attribute 'default nil :height 180)
 
+(require-package 'zoom-frm)
+(require 'zoom-frm)
+(global-set-key (kbd "C-x C-0") 'zoom-in/out)
+(global-set-key (kbd "C-M-=") 'zoom-in)
+(global-set-key (kbd "C-M--") 'zoom-out)
 
-
-
+;; --------------------------------------------------------------------------------
+;; -- 废弃了，此方法在 Daemon 下会出错，terminal 0 is locked, cannot read from it.
+;; -- 使用 zoom-frm 插件
+;; --------------------------------------------------------------------------------
 (defun sanityinc/font-name-replace-size (font-name new-size)
   (let ((parts (split-string font-name "-")))
     (setcar (nthcdr 7 parts) (format "%d" new-size))
@@ -46,9 +53,8 @@ by the :height face attribute."
   (interactive)
   (sanityinc/increment-default-font-height -10))
 
-(global-set-key (kbd "C-M-=") 'sanityinc/increase-default-font-height)
-(global-set-key (kbd "C-M--") 'sanityinc/decrease-default-font-height)
-
-
+;; (global-set-key (kbd "C-M-=") 'sanityinc/increase-default-font-height)
+;; (global-set-key (kbd "C-M--") 'sanityinc/decrease-default-font-height)
+;; --------------------------------------------------------------------------------
 
 (provide 'init-fonts)
