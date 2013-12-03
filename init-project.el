@@ -2,13 +2,54 @@
 ;; fiplr
 ;; --------------------------------------------------------------------------------
 
-(require-package 'fiplr)
+;; (require-package 'fiplr)
+;; (setq fiplr-root-markers '(".git" ".svn"))
+;; (setq fiplr-ignored-globs '((directories (".git" ".svn" "spec"))
+;;                             (files ("*.jpg" "*.png" "*.zip" "*~"))))
+;; (global-set-key (kbd "C-x f") 'fiplr-find-file)
+;; --------------------------------------------------------------------------------
 
-(setq fiplr-root-markers '(".git" ".svn"))
-(setq fiplr-ignored-globs '((directories (".git" ".svn"))
-                            (files ("*.jpg" "*.png" "*.zip" "*~"))))
+;;--------------------------------------------------------------------------------
+;; new function: find file in repo
+;; http://puntoblogspot.blogspot.com/2013/10/yet-another-find-file-in-project-in.html
+;; --------------------------------------------------------------------------------
+(defun rgc-find-git-root ()
+  "Find git root directory from current directory."
+  (interactive)
+  (rgc-member-directory default-directory
+                        "~/"
+                        (lambda (x)
+                          (file-exists-p (concat x ".git")))))
 
-(global-set-key (kbd "C-x f") 'fiplr-find-file)
+(defun rgc-member-directory (from to fun &optional if-nil)
+  "Returns a directory between `from' and `to' for wich `fun'
+returns non nil. The search begins on the child 'from' and goes
+up till 'to', or '/'. If `if-nil' is provided, in case of not
+finding any suitable directory, it returns it instead of `to'"
+  (when (not (file-exists-p from))
+    (return))
+  (if (or (equal (expand-file-name from) (expand-file-name to))
+          (equal from "/")) ;how to do it multiplatform?
+      (or if-nil to)
+    (if (funcall fun from) from
+      (rgc-member-directory (expand-file-name (concat from "/../")) ;how to do it multiplatform?
+                            to
+                            fun
+                            if-nil))))
+
+(defun find-file-in-repo ()
+  (interactive)
+  (let* ((git-root (rgc-find-git-root))
+         (ido-enable-regexp nil)
+         (repo-files (split-string
+                      (with-temp-buffer
+                        (cd git-root)
+                        (shell-command "git ls-files" t)
+                        (buffer-string)))))
+    (find-file (concat git-root "/"
+                       (ido-completing-read "file: " repo-files t t)))))
+(global-set-key (kbd "C-x f") 'find-file-in-repo)
+
 ;; --------------------------------------------------------------------------------
 
 (defvar af-ido-flex-fuzzy-limit (* 2000 5))
