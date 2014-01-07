@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: army revive log
+# key: army
+# --
+select army_logs.* from army_logs inner join users on army_logs.user_id = users.id  where army_logs.log_type = 'revive' and army_logs.created_at > '2013-12-${1:}' and '2013-12-${2:}' and users.username = '${3:}';$0
