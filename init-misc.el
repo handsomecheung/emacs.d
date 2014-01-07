@@ -270,4 +270,8 @@ Position the cursor at it's beginning, according to the current mode."
 (global-set-key (kbd "C-o") 'smart-open-line)
 (global-set-key (kbd "M-o") 'smart-open-line-above)
 
+
+;; highlight current line
+;; (global-hl-line-mode 1)
+
 (provide 'init-misc)
