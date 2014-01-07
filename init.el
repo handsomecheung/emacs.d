@@ -81,7 +81,7 @@
 (require 'init-comment)
 (require 'init-copy-cut-yank)
 (require 'init-autopair)
-(require 'init-smartparens)
+;; (require 'init-smartparens)
 (require 'init-quickrun)
 ;; (require 'init-ecb)
 ;;; (require 'init-present)
