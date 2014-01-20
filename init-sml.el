@@ -4,7 +4,7 @@
 ;; (setq sml-mode-dir "/path/to/sml-mode-directory")
 
 ;; *** set this path to the sml executable (sml.bat on Windows)
-(setq sml-prog-name "/usr/bin/sml")
+(setq sml-prog-name "/usr/lib/smlnj/bin/sml")
 
 ;; (add-to-list 'load-path sml-mode-dir)
 ;; (autoload 'sml-mode "sml-mode-color" () t)
