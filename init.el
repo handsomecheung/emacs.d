@@ -100,6 +100,7 @@
 ;(require 'init-haml)
 (require 'init-python-mode)
 (require 'init-lua-mode)
+(require 'init-sml)
 ;(require 'init-haskell)
 (require 'init-ruby-mode)
 (require 'init-rails)
