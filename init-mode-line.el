@@ -99,6 +99,11 @@
                ;; relative position, size of file
                "[" (propertize "%p" 'face 'font-lock-constant-face) "/" (propertize "%I" 'face 'font-lock-constant-face) "] "
 
+               ;; show current function name
+               '(:eval (when which-func-mode
+                         (concat "[" (propertize (which-function) 'face 'font-lock-keyword-face) "] ")))
+
+
                ;; show git branch
                '(:eval (when (git-branch-name)
                          (concat "[Git: " (propertize (git-branch-name) 'face 'font-lock-preprocessor-face) "] ")))

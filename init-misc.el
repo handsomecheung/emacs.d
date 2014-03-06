@@ -274,4 +274,6 @@ Position the cursor at it's beginning, according to the current mode."
 ;; highlight current line
 ;; (global-hl-line-mode 1)
 
+(which-function-mode 1)
+
 (provide 'init-misc)
