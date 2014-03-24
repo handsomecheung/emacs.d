@@ -4,8 +4,9 @@
 (defun build-ctags ()
   (interactive)
   (message "building project tags")
-  (let ((root (project-root)))
-    (shell-command (concat "ctags -e -R --extra=+fq --exclude=db --exclude=test --exclude=public -f " root "TAGS " root)))
+  (let ((root (project-root))
+        (ctags (if *is-a-mac* "/usr/local/bin/ctags" "ctags")))
+    (shell-command (concat ctags " -e -R --extra=+fq --exclude=db --exclude=test --exclude=public -f " root "TAGS " root)))
   (visit-project-tags)
   (message "tags built successfully"))
 
