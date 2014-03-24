@@ -90,6 +90,8 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
         ((setq default-directory "~/"))))
 ;; --------------------------------------------------------------------------------
 
+(if *is-a-mac* (modify-syntax-entry ?- "w"))
+
 ;;--------------------------------------------------------------------------------
 (defun eval-and-replace ()
   "Replace the preceding sexp with its value."
