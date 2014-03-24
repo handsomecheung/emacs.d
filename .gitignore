@@ -25,3 +25,4 @@ cookies
 *.swp
 .zcache
 TAGS
+.DS_Store
