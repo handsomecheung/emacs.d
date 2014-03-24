@@ -1,9 +1,16 @@
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
+(if (not (boundp 'user-emacs-directory))
+    (setq user-emacs-directory "~/.emacs.d/"))
 (add-to-list 'load-path user-emacs-directory)
-(add-to-list 'load-path "~/.emacs.d/package")
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(add-to-list 'load-path
+             (concat user-emacs-directory
+                     (convert-standard-filename "package/")))
+(add-to-list 'custom-theme-load-path
+             (concat user-emacs-directory
+                     (convert-standard-filename "themes/")))
+
 ;; (add-to-list 'load-path "~/emacs.d/packages/tiny-tools")
 (require 'init-benchmarking) ;; Measure startup time
 

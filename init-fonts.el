@@ -2,12 +2,22 @@
 
 (set-language-environment 'UTF-8)
 
-;; (set-default-font "DejaVu Sans Mono")
-(set-default-font "WenQuanYi Zen Hei Mono")
 
 ;; 设置中文字体
-;; (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Bitmap Song" . "unicode-bmp"))
-(set-fontset-font "fontset-default" 'unicode '("WenQuanYi Zen Hei Mono" . "unicode-ttf"))
+(if *is-a-mac*
+    (progn
+      (set-fontset-font
+       (frame-parameter nil 'font)
+       'han
+       ;; (font-spec :family "Monaco")
+       (font-spec :family "Lantinghei SC")
+       ;; (font-spec :family "Hiragino Sans GB" )
+       ))
+  (progn
+    ;; (set-default-font "DejaVu Sans Mono")
+    ;; (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Bitmap Song" . "unicode-bmp"))
+    (set-default-font "WenQuanYi Zen Hei Mono")
+    (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Zen Hei Mono" . "unicode-ttf"))))
 
 ;; set font size to 18
 (set-face-attribute 'default nil :height 180)

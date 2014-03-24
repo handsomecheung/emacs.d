@@ -2,7 +2,8 @@
   (require-package 'org))
 (require-package 'org-fstree)
 (when *is-a-mac*
-  (require-package 'org-mac-link-grabber)
+  ; (require-package 'org-mac-link-grabber)
+  (require-package 'org-mac-link)
   (require-package 'org-mac-iCal))
 
 
@@ -107,7 +108,8 @@
      (require 'org-exp)
      (require 'org-clock)
      (when *is-a-mac*
-       (require 'org-mac-link-grabber)
+       ; (require 'org-mac-link-grabber)
+       (require 'org-mac-link)
        (define-key org-mode-map (kbd "C-c g") 'omlg-grab-link))
      ;;(require 'org-checklist)
      (require 'org-fstree)))

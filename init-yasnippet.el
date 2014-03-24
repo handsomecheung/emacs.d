@@ -1,9 +1,9 @@
-;(require-package 'yasnippet)
-(require 'yasnippet)
-(setq yas-root-directory "~/.emacs.d/elpa/yasnippet-20130907.1855/snippets")
+(require-package 'yasnippet)
+; (require 'yasnippet)
+(setq yas-root-directory "~/.emacs.d/elpa/yasnippet-20140314.255/snippets")
 (setq my-yasnippet-directory "~/.emacs.d/my-yasnippet")
 
-(yas-load-directory yas-root-directory)
+; (yas-load-directory yas-root-directory)
 (setq yas-snippet-dirs (list yas-root-directory my-yasnippet-directory))
 
 (setq yas/prompt-functions '(yas/x-prompt yas/dropdown-prompt))

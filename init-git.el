@@ -57,7 +57,7 @@
 
 (eval-after-load 'magit
   '(progn
-     (require 'magit-svn)))
+     (require-package 'magit-svn)))
 
 (eval-after-load 'compile
   '(progn
