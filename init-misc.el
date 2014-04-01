@@ -89,8 +89,17 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
         ((equalp server-name "hc-server") (setq default-directory "~/"))
         ((setq default-directory "~/"))))
 ;; --------------------------------------------------------------------------------
+(defun my-modify-syntax ()
+  (progn (modify-syntax-entry ?- "w")
+         (modify-syntax-entry ?_ "w")))
 
-(if *is-a-mac* (modify-syntax-entry ?- "w"))
+(if *is-a-mac*
+    (progn
+      (add-hook 'ruby-mode-hook 'my-modify-syntax)
+      (add-hook 'lisp-mode-hook 'my-modify-syntax)
+      (add-hook 'emacs-lisp-mode-hook 'my-modify-syntax)
+      (add-hook 'scheme-mode-hook 'my-modify-syntax)
+      ))
 
 ;;--------------------------------------------------------------------------------
 (defun eval-and-replace ()
