@@ -285,6 +285,15 @@ Position the cursor at it's beginning, according to the current mode."
 ;; highlight current line
 ;; (global-hl-line-mode 1)
 
-(which-function-mode 1)
+;; (which-function-mode 1)
+;; (setq-default header-line-format
+;;               '((which-func-mode ("" which-func-format " "))))
+
+(autoload 'which-function "which-func")
+(autoload 'popup-tip "popup")
+(defun popup-which-function ()
+  (interactive)
+  (popup-tip (which-function)))
+(global-set-key (kbd "<f5>") 'popup-which-function)
 
 (provide 'init-misc)
