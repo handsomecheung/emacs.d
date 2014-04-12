@@ -13,8 +13,8 @@
 ;;--------------------------------------------------------------------------------
 
 ;--------------------tabbar--------------------------------------------------
-(require-package 'tabbar)
-(tabbar-mode)
+;; (require-package 'tabbar)
+;; (tabbar-mode)
 ;; (global-set-key (kbd "") 'tabbar-backward-group)
 ;; (global-set-key (kbd "") 'tabbar-forward-group)
 ;; (global-set-key (kbd "") 'tabbar-backward)
