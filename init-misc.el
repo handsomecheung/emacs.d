@@ -84,8 +84,8 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
 ;;  default dir
 ;; --------------------------------------------------------------------------------
 (let ((server-name (shell-command-to-string-no-newline "uname -n")))
-  (cond ((and (equalp server-name "t4f-mbp-13583.local") *is-a-mac*) (setq default-directory "~/ke_code"))
-        ((equalp server-name "t4f-mbp-13583") (setq default-directory "~/ke_code"))
+  (cond ((and (equalp server-name "t4f-mbp-13552.local") *is-a-mac*) (setq default-directory "~/ke_code"))
+        ((equalp server-name "t4f-mbp-13552") (setq default-directory "~/ke_code"))
         ((equalp server-name "hc-server") (setq default-directory "~/"))
         ((setq default-directory "~/"))))
 ;; --------------------------------------------------------------------------------
