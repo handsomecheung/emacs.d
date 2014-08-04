@@ -12,6 +12,9 @@
 (require-package 'ruby-electric)
 ;; (require-package 'mmm-mode)
 
+(require-package 'ruby-tools)
+(add-hook 'ruby-mode-hook 'ruby-tools-mode)
+
 (require-package 'rvm)
 (rvm-use-default)
 
