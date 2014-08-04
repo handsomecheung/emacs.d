@@ -87,40 +87,10 @@
 ;;--------------------------------------------------------------------------------
 ;; ruby-electric
 ;;--------------------------------------------------------------------------------
-;; (add-hook 'ruby-mode-hook 'ruby-electric-mode)
-;; (add-hook 'ruby-mode-hook '(lambda ()
-;;                                ;; make ruby-electric play nice with autopair
-;;                                (substitute-key-definition 'ruby-electric-curlies nil ruby-mode-map)
-;;                                (substitute-key-definition 'ruby-electric-matching-char nil ruby-mode-map)
-;;                                (substitute-key-definition 'ruby-electric-close-matching-char nil ruby-mode-map)))
-
-;; # avoid ruby-electric conflicting with autopair
-
-(add-hook 'ruby-electric-mode-hook
+(add-hook 'ruby-mode-hook
           '(lambda ()
-             (define-key ruby-mode-map "{" nil)))
-(add-hook 'ruby-electric-mode-hook
-          '(lambda ()
-             (define-key ruby-mode-map "(" nil)))
-(add-hook 'ruby-electric-mode-hook
-          '(lambda ()
-             (define-key ruby-mode-map "[" nil)))
-(add-hook 'ruby-electric-mode-hook
-          '(lambda ()
-             (define-key ruby-mode-map "}" nil)))
-(add-hook 'ruby-electric-mode-hook
-          '(lambda ()
-             (define-key ruby-mode-map ")" nil)))
-(add-hook 'ruby-electric-mode-hook
-          '(lambda ()
-             (define-key ruby-mode-map "]" nil)))
-(add-hook 'ruby-electric-mode-hook
-          '(lambda ()
-             (define-key ruby-mode-map "\"" nil)))
-(add-hook 'ruby-electric-mode-hook
-          '(lambda ()
-             (define-key ruby-mode-map "\'" nil)))
-
+             (autopair-mode 0)
+             (ruby-electric-mode t)))
 ;;--------------------------------------------------------------------------------
 
 
