@@ -296,4 +296,7 @@ Position the cursor at it's beginning, according to the current mode."
   (popup-tip (which-function)))
 (global-set-key (kbd "<f5>") 'popup-which-function)
 
+
+(setq confirm-kill-emacs 'yes-or-no-p)
+
 (provide 'init-misc)
