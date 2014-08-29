@@ -299,4 +299,10 @@ Position the cursor at it's beginning, according to the current mode."
 
 (setq confirm-kill-emacs 'yes-or-no-p)
 
+;; --------------------------------------------------------------------------------
+;; minimap
+;; --------------------------------------------------------------------------------
+;; (require-package 'minimap)
+;; --------------------------------------------------------------------------------
+
 (provide 'init-misc)
