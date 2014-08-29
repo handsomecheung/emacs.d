@@ -87,4 +87,17 @@
 ;; (defadvice evil-visual-block (before spc-for-char-jump activate)
 ;;   (define-key evil-motion-state-map (kbd "SPC") #'evil-ace-jump-char-mode))
 ;; -------------------------------------------------------------------------------------------------------------
+
+
+;; -------------------------------------------------------------------------------------------------------------
+;; code folding binding:
+;; already on evil
+;; -------------------------------------------------------------------------------------------------------------
+;; (define-key evil-motion-state-map (kbd "zc") #'hs-hide-block)
+;; (define-key evil-motion-state-map (kbd "zm") #'hs-hide-all)
+;; (define-key evil-motion-state-map (kbd "zo") #'hs-show-block)
+;; (define-key evil-motion-state-map (kbd "zr") #'hs-show-all)
+;; (define-key evil-motion-state-map (kbd "zt") #'hs-show-all)
+;; -------------------------------------------------------------------------------------------------------------
+
 (provide 'init-evil)
