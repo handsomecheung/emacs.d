@@ -238,6 +238,9 @@
 (require-package 'move-text)
 (move-text-default-bindings)
 
+;; 更好用，不用 drag-stuff 不能全局开启
+;; (require-package 'drag-stuff)
+;; (drag-stuff-mode t)
 
 ;;----------------------------------------------------------------------------
 ;; Fix backward-up-list to understand quotes, see http://bit.ly/h7mdIL

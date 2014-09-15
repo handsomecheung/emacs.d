@@ -302,7 +302,41 @@ Position the cursor at it's beginning, according to the current mode."
 ;; --------------------------------------------------------------------------------
 ;; minimap
 ;; --------------------------------------------------------------------------------
-;; (require-package 'minimap)
+;; (require-package 'sublimity)
+;; (require 'sublimity-map)
+;; (require 'sublimity-scroll)
+;; (require 'sublimity-attractive)
+
+;; (sublimity-mode 1)
+
+;; (setq sublimity-scroll-weight 10
+;;       sublimity-scroll-drift-length 5)
+;; (setq sublimity-map-size 20)
+;; (setq sublimity-map-fraction 0.3)
+;; (setq sublimity-map-text-scale -7)
+
+;; (add-hook 'sublimity-map-setup-hook
+;;           (lambda ()
+;;             (setq buffer-face-mode-face '(:family "Monospace"))
+;;             (buffer-face-mode)))
+
+;; (sublimity-map-set-delay 2)
+
+;; (setq sublimity-attractive-centering-width 110)
+
+;; (sublimity-attractive-hide-bars)
+;; (sublimity-attractive-hide-vertical-border)
+;; (sublimity-attractive-hide-fringes)
+;; (sublimity-attractive-hide-modelines)
+
+;; --------------------------------------------------------------------------------
+
+;; --------------------------------------------------------------------------------
+;; key guide
+;; --------------------------------------------------------------------------------
+;; (require-package 'guide-key)
+;; (setq guide-key/guide-key-sequence '("C-x r" "C-x 4"))
+;; (guide-key-mode 1)
 ;; --------------------------------------------------------------------------------
 
 (provide 'init-misc)
