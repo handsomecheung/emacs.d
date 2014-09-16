@@ -339,4 +339,10 @@ Position the cursor at it's beginning, according to the current mode."
 ;; (guide-key-mode 1)
 ;; --------------------------------------------------------------------------------
 
+(require-package 'google-translate)
+(require 'google-translate-default-ui)
+(global-set-key (kbd "C-c t") 'google-translate-at-point)
+(global-set-key (kbd "C-c T") 'google-translate-query-translate)
+
+
 (provide 'init-misc)
