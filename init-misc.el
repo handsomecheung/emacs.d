@@ -182,7 +182,7 @@ occurence of CHAR."
           (concat "..."
               (substring fname (- (length fname) max-len)))))
     fname))
-(setq frame-title-format '("hc-Emacs@"(:eval (frame-title-string))))
+(setq frame-title-format '("Emacs@" (:eval (frame-title-string))))
 ;(setq frame-title-format "%b@emacs")
 
 (setq user-full-name "Handsome Cheung")
