@@ -93,9 +93,11 @@
 ;; (require 'init-ecb)
 ;;; (require 'init-present)
 
-
 (require 'init-crontab)
 (require 'init-textile)
+
+(require 'init-srclib)
+
 (require 'init-markdown)
 ;; (require 'init-csv)
 (require 'init-erlang)
@@ -172,3 +174,4 @@
 ;; End:
 (put 'set-goal-column 'disabled nil)
 (put 'erase-buffer 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
