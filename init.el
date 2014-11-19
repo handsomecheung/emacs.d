@@ -3,7 +3,9 @@
 
 (if (not (boundp 'user-emacs-directory))
     (setq user-emacs-directory "~/.emacs.d/"))
-(add-to-list 'load-path user-emacs-directory)
+
+(add-to-list 'load-path (expand-file-name "inits" user-emacs-directory))
+
 (add-to-list 'load-path
              (concat user-emacs-directory
                      (convert-standard-filename "package/")))
