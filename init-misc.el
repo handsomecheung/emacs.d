@@ -344,5 +344,6 @@ Position the cursor at it's beginning, according to the current mode."
 (global-set-key (kbd "C-c t") 'google-translate-at-point)
 (global-set-key (kbd "C-c T") 'google-translate-query-translate)
 
+(setq enable-local-variables :safe)
 
 (provide 'init-misc)
