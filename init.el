@@ -98,8 +98,6 @@
 (require 'init-crontab)
 (require 'init-textile)
 
-(require 'init-srclib)
-
 (require 'init-markdown)
 ;; (require 'init-csv)
 (require 'init-erlang)
