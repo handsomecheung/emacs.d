@@ -59,8 +59,11 @@
 ;;----------------------------------------------------------------------------
 ;; Show matching parens
 ;;----------------------------------------------------------------------------
-(require-package 'mic-paren)
-(paren-activate)     ; activating mic-paren
+;; (require-package 'mic-paren)
+;; (paren-activate)     ; activating mic-paren
+;; conflicts with evil in Emacs 24.4
+;; use (show-paren-mode t) instead
+(show-paren-mode t)
 
 ;;----------------------------------------------------------------------------
 ;; Expand region
@@ -72,14 +75,15 @@
 ;;----------------------------------------------------------------------------
 ;; Fix per-window memory of buffer point positions
 ;;----------------------------------------------------------------------------
-(require-package 'pointback)
-(global-pointback-mode)
-(eval-after-load 'skeleton
-  '(defadvice skeleton-insert (before disable-pointback activate)
-     "Disable pointback when using skeleton functions like `sgml-tag'."
-     (when pointback-mode
-       (message "Disabling pointback.")
-       (pointback-mode -1))))
+;; (require-package 'pointback)
+;; (global-pointback-mode)
+;; (eval-after-load 'skeleton
+;;   '(defadvice skeleton-insert (before disable-pointback activate)
+;;      "Disable pointback when using skeleton functions like `sgml-tag'."
+;;      (when pointback-mode
+;;        (message "Disabling pointback.")
+;;        (pointback-mode -1))))
+;; conflicts with evil in Emacs 24.4
 
 
 ;;----------------------------------------------------------------------------
