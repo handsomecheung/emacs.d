@@ -1,6 +1,6 @@
 (require-package 'yasnippet)
-; (require 'yasnippet)
-(setq yas-root-directory "~/.emacs.d/elpa/yasnippet-20140314.255/snippets")
+(require 'yasnippet)
+(setq yas-root-directory "~/.emacs.d/elpa/yasnippet-20130722.1832/snippets")
 (setq my-yasnippet-directory "~/.emacs.d/my-yasnippet")
 
 ; (yas-load-directory yas-root-directory)
