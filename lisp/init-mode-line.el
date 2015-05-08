@@ -103,10 +103,10 @@
                ;; '(:eval (when which-func-mode
                ;;           (concat "[" (propertize (which-function) 'face 'font-lock-keyword-face) "] ")))
 
-
                ;; show git branch
-               '(:eval (when (git-branch-name)
-                         (concat "[Git: " (propertize (git-branch-name) 'face 'font-lock-preprocessor-face) "] ")))
+               '(:eval (let ((branch (magit-get-current-branch)))
+                         (when branch
+                           (concat "[Git: " (propertize branch 'face 'font-lock-preprocessor-face) "] "))))
 
                ;; show project name
                '(:eval (when (project-name)
