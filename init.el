@@ -109,6 +109,7 @@
 ;(require 'init-haml)
 (require 'init-python-mode)
 (require 'init-lua-mode)
+(require 'init-ocaml)
 (require 'init-sml)
 ;(require 'init-haskell)
 (require 'init-ruby-mode)
