@@ -1,6 +1,13 @@
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (if (not (boundp 'user-emacs-directory))
     (setq user-emacs-directory "~/.emacs.d/"))
 
@@ -116,6 +123,7 @@
 (require 'init-rails)
 (require 'init-sql)
 (require 'init-prolog)
+(require 'init-golang)
 
 (require 'init-paredit)
 (require 'init-lisp)
@@ -131,7 +139,7 @@
 (require 'init-marmalade)
 (require 'init-misc)
 
-(require 'init-tap4fun)
+;; (require 'init-tap4fun)
 
 ;; Extra packages which don't require any configuration
 
