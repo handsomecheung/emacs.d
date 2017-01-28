@@ -1,16 +1,22 @@
 
 ;; ----- smex-history -----
 (
- cd
- mf
- ri
- 5x5
- arp
- dbx
- dig
+ eval-buffer
+ list-packages
+ rgrep
+ eval-region
+ describe-variable
+ describe-key
+ text-mode
 )
 
 ;; ----- smex-data -----
 (
- 
+ (text-mode . 1)
+ (rgrep . 3)
+ (list-packages . 3)
+ (eval-region . 3)
+ (describe-variable . 5)
+ (describe-key . 4)
+ (eval-buffer . 2)
 )
