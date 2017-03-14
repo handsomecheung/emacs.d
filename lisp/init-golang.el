@@ -26,6 +26,14 @@
             (add-to-list 'ac-sources 'ac-source-go)
             (call-process "gocode" nil nil nil "-s")))
 
+(add-hook 'go-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook 'gofmt-before-save)
+            (setq-default)
+            (setq tab-width 4)
+            (setq standard-indent 2)
+            (setq indent-tabs-mode nil)))
+
 ;;; ### Golang ###
 ;; (lazy-unset-key
 ;;  '("C-k" "M-o")
