@@ -124,7 +124,7 @@
 (require 'init-sql)
 (require 'init-prolog)
 (require 'init-golang)
-(require 'init-scala)
+;; (require 'init-scala)
 
 (require 'init-paredit)
 (require 'init-lisp)
