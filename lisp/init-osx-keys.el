@@ -14,5 +14,14 @@
     (global-set-key (kbd "M-c") 'ns-copy-including-secondary)
     (global-set-key (kbd "M-v") 'ns-paste-secondary)))
 
+;-------------------------------------
+; Emacs on Mac OS alt key problem
+;;; I prefer cmd key for meta
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier nil
+      mac-option-modifier 'meta)
+
+(global-set-key (kbd "<kp-delete>") 'delete-char)
 
 (provide 'init-osx-keys)

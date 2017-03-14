@@ -140,19 +140,6 @@ occurence of CHAR."
 (setq-default indent-tabs-mode nil)    ; use only spaces and no tabs
 (setq default-tab-width 4)
 ;; (global-whitespace-mode 1)
-;-------------------------------------
-; Emacs on Mac OS alt key problem
-
-;; (setq mac-option-key-is-meta t)
-;; (setq mac-command-key-is-meta t)
-;; (setq mac-command-metamodifier)
-;; (setq mac-option-modifier nil)
-;;; I prefer cmd key for meta
-(setq mac-option-key-is-meta nil
-      mac-command-key-is-meta t
-      mac-command-modifier nil
-      mac-option-modifier 'meta)
-(global-set-key (kbd "<kp-delete>") 'delete-char)
 
 ;-------------------------------------
 

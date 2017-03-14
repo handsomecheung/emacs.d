@@ -4,6 +4,7 @@
   (add-hook hook 'turn-on-haskell-doc-mode))
 
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;; (set (make-local-variable 'indent-line-function) 'haskell-mode-suggest-indent-choice)
 
 (eval-after-load 'haskell-mode
   '(progn

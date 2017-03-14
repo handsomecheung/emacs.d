@@ -1,3 +1,3 @@
-(require 'scala-mode2)
+(require 'scala-mode)
 
 (provide 'init-scala)
