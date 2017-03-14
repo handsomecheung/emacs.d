@@ -23,12 +23,13 @@
             (linum-mode 1)
             (flymake-mode 1)
             (auto-complete-mode 1)
-            (add-to-list 'ac-sources 'ac-source-go)
-            (call-process "gocode" nil nil nil "-s")))
+            ;; (add-to-list 'ac-sources 'ac-source-go)
+            ;; (call-process "gocode" nil nil nil "-s")
+            ))
 
 (add-hook 'go-mode-hook
           (lambda ()
-            (add-hook 'before-save-hook 'gofmt-before-save)
+            ;; (add-hook 'before-save-hook 'gofmt-before-save)
             (setq-default)
             (setq tab-width 4)
             (setq standard-indent 2)

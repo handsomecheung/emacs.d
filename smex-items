@@ -1,13 +1,13 @@
 
 ;; ----- smex-history -----
 (
+ insert-buffer
+ replace-regexp
  eval-buffer
  list-packages
  rgrep
  eval-region
  describe-variable
- describe-key
- text-mode
 )
 
 ;; ----- smex-data -----
@@ -19,4 +19,6 @@
  (describe-variable . 5)
  (describe-key . 4)
  (eval-buffer . 2)
+ (replace-regexp . 1)
+ (insert-buffer . 1)
 )
