@@ -197,4 +197,4 @@
   (ruby-indent-line t)
   (end-of-line))
 
-(provide 'init-ruby-mode)
+(provide 'init-ruby)
