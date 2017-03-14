@@ -112,6 +112,7 @@
 (require 'init-ocaml)
 (require 'init-sml)
 ;(require 'init-haskell)
+(require 'init-go)
 (require 'init-ruby-mode)
 (require 'init-rails)
 (require 'init-sql)
