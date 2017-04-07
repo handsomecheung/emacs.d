@@ -1,13 +1,15 @@
+(require-package 'jsx-mode)
+
 (require-package 'json)
 (require-package 'js3-mode)
 (when (>= emacs-major-version 24)
   (require-package 'js2-mode))
-(require-package 'js-comint)
 (require-package 'rainbow-delimiters)
-(require-package 'coffee-mode)
-(require-package 'flymake-coffee)
 (require-package 'flymake-jslint)
 (require-package 'flymake-json)
+;; (require-package 'flymake-coffee)
+;; (require-package 'js-comint)
+;; (require-package 'coffee-mode)
 
 
 (defcustom preferred-javascript-mode
@@ -29,6 +31,9 @@
 
 (add-auto-mode 'js-mode "\\.json\\'")
 (add-hook 'js-mode-hook 'flymake-json-maybe-load)
+
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(autoload 'jsx-mode "jsx-mode" "JSX mode" t)
 
 ;; On-the-fly syntax checking
 (eval-after-load 'js
@@ -94,9 +99,9 @@
 ;; Alternatively, use skewer-mode
 ;; ---------------------------------------------------------------------------
 
-(when (featurep 'js2-mode)
-  (require-package 'skewer-mode)
-  (add-hook 'skewer-mode-hook (lambda () (inferior-js-keys-mode -1))))
+;; (when (featurep 'js2-mode)
+;;   (require-package 'skewer-mode)
+;;   (add-hook 'skewer-mode-hook (lambda () (inferior-js-keys-mode -1))))
 
 
 (provide 'init-javascript)
