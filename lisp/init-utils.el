@@ -85,5 +85,14 @@
         (error "Cannot open tramp file")
       (browse-url (concat "file://" file-name)))))
 
+(defun indent-marked-files ()
+  (interactive)
+  (dolist (file (dired-get-marked-files))
+    (find-file file)
+    (goto-char (point-min))
+    (insert "\n")
+    (indent-region (point-min) (point-max))
+    (save-buffer)
+    (kill-buffer nil)))
 
 (provide 'init-utils)
