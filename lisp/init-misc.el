@@ -99,6 +99,7 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
   (add-hook 'lisp-mode-hook 'my-modify-syntax)
   (add-hook 'emacs-lisp-mode-hook 'my-modify-syntax)
   (add-hook 'scheme-mode-hook 'my-modify-syntax)
+  (add-hook 'js2-mode-hook 'my-modify-syntax)
   )
 
 ;;--------------------------------------------------------------------------------
