@@ -118,6 +118,7 @@
 (require 'init-lisp)
 (require 'init-scheme)
 (require 'init-json)
+(require 'init-restclient)
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
