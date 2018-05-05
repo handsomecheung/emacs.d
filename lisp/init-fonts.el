@@ -16,8 +16,8 @@
   (progn
     ;; (set-default-font "DejaVu Sans Mono")
     ;; (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Bitmap Song" . "unicode-bmp"))
-    (set-default-font "WenQuanYi Zen Hei Mono")
-    (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Zen Hei Mono" . "unicode-ttf"))))
+    (set-default-font "WenQuanYi Micro Hei Mono")
+    (set-fontset-font "fontset-default" 'unicode '("WenQuanYi Micro Hei Mono" . "unicode-ttf"))))
 
 ;; set font size to 18
 (set-face-attribute 'default nil :height 180)

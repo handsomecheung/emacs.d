@@ -100,15 +100,14 @@ With numeric prefix arg DEC, decrement the integer by DEC amount."
          (modify-syntax-entry ?/ "w")
          ))
 
-(if *is-a-mac*
-    (progn
-      (add-hook 'ruby-mode-hook 'my-modify-syntax)
-      (add-hook 'python-mode-hook 'my-modify-syntax)
-      (add-hook 'lisp-mode-hook 'my-modify-syntax)
-      (add-hook 'scheme-mode-hook 'my-modify-syntax-scheme)
-      (add-hook 'emacs-lisp-mode-hook 'my-modify-syntax)
-      (add-hook 'scheme-mode-hook 'my-modify-syntax)
-      ))
+(progn
+  (add-hook 'ruby-mode-hook 'my-modify-syntax)
+  (add-hook 'python-mode-hook 'my-modify-syntax)
+  (add-hook 'lisp-mode-hook 'my-modify-syntax)
+  (add-hook 'emacs-lisp-mode-hook 'my-modify-syntax)
+  (add-hook 'js2-mode-hook 'my-modify-syntax)
+  (add-hook 'scheme-mode-hook 'my-modify-syntax-scheme)
+  )
 
 ;;--------------------------------------------------------------------------------
 (defun eval-and-replace ()
