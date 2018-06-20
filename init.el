@@ -119,6 +119,7 @@
 (require 'init-scheme)
 (require 'init-json)
 (require 'init-restclient)
+(require 'init-groovy)
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
