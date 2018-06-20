@@ -333,6 +333,8 @@ Position the cursor at it's beginning, according to the current mode."
          (modify-syntax-entry ?/ "w")
          (modify-syntax-entry ?& "w")
          (modify-syntax-entry ?? "w")
+         (modify-syntax-entry ?! "w")
+         (modify-syntax-entry ?* "w")
          ))
 
 (progn
@@ -342,6 +344,7 @@ Position the cursor at it's beginning, according to the current mode."
   (add-hook 'scheme-mode-hook 'my-modify-syntax-lisp)
   (add-hook 'lisp-mode-hook 'my-modify-syntax-lisp)
   (add-hook 'emacs-lisp-mode-hook 'my-modify-syntax-lisp)
+  (add-hook 'racket-mode-hook 'my-modify-syntax-lisp)
   )
 
 (provide 'init-misc)
