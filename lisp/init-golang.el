@@ -12,6 +12,13 @@
       (paredit-kill-line-in-string)
     (paredit-kill)))
 
+(setenv "PATH"
+  (concat
+   "/usr/lib/go-1.10/bin" ":"
+   (getenv "PATH")
+  )
+)
+
 (defun go-backward-delete()
   (interactive)
   (if (go-mode-in-string)
