@@ -120,6 +120,7 @@
 (require 'init-json)
 (require 'init-restclient)
 (require 'init-groovy)
+(require 'init-vue)
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
