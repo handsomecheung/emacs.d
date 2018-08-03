@@ -1,6 +1,4 @@
-;; (require-package 'go-mode)
-;; (require 'go-mode)
-(require 'go-mode-autoloads)
+(require-package 'go-mode)
 
 (defun go-run-buffer()
   (interactive)
