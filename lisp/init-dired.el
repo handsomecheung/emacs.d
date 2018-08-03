@@ -1,11 +1,7 @@
-(require-package 'dired+)
-
 (eval-after-load 'dired
   '(progn
-     (require 'dired+)
      (setq dired-recursive-deletes 'top)
      (define-key dired-mode-map [mouse-2] 'dired-find-file)))
-
 
 ;------------dired mode sort------------------------------------
 ; s s 按照文件大小排序。

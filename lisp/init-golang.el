@@ -14,7 +14,7 @@
 
 (setenv "PATH"
   (concat
-   "/usr/lib/go-1.10/bin" ":"
+   (if *is-a-mac* "/usr/local/go/bin/go" "/usr/lib/go-1.10/bin") ":"
    (getenv "PATH")
   )
 )

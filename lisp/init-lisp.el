@@ -29,19 +29,6 @@
 (auto-compile-on-save-mode 1)
 (auto-compile-on-load-mode 1)
 
-;; ----------------------------------------------------------------------------
-;; Highlight current sexp
-;; ----------------------------------------------------------------------------
-
-(require-package 'hl-sexp)
-
-;; Prevent flickery behaviour due to hl-sexp-mode unhighlighting before each command
-(eval-after-load 'hl-sexp
-  '(defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
-     (when turn-on
-       (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
-
-
 
 ;;; Support byte-compilation in a sub-process, as
 ;;; required by highlight-cl

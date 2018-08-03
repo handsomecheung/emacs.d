@@ -49,10 +49,9 @@
 ;;----------------------------------------------------------------------------
 
 (require-package 'wgrep)
-(require-package 'project-local-variables)
 (require-package 'diminish)
 (require-package 'scratch)
-(require-package 'mwe-log-commands)
+(require-package 'command-log-mode)
 
 (require 'init-evil)
 (require 'init-frame-hooks)
@@ -65,8 +64,8 @@
 (require 'init-maxframe)
 (require 'init-proxies)
 (require 'init-dired)
+(require 'init-ido)
 (require 'init-isearch)
-(require 'init-buffer)
 (require 'init-uniquify)
 (require 'init-ibuffer)
 (require 'init-flymake)
@@ -75,7 +74,6 @@
 (require 'init-hide-region)
 (require 'init-shell)
 (require 'init-ace-jump)
-(require 'init-tags)
 (require 'init-folding)
 
 ;; (require 'init-autosave)
@@ -83,14 +81,12 @@
 ;; (require 'init-icicles)
 
 (require 'init-recentf)
-(require 'init-ido)
 (require 'init-hippie-expand)
 (require 'init-auto-complete)
 (require 'init-yasnippet)
 (require 'init-windows)
 (require 'init-fonts)
 (require 'init-mmm)
-(require 'init-growl)
 (require 'init-editing-utils)
 (require 'init-darcs)
 (require 'init-comment)
@@ -142,7 +138,6 @@
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
-(require 'init-marmalade)
 (require 'init-misc)
 
 ;; (require 'init-tap4fun)

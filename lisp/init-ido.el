@@ -6,8 +6,8 @@
 (setq ido-auto-merge-work-directories-length 0)
 (setq ido-use-virtual-buffers t)
 
-(require-package 'ido-ubiquitous)
-(ido-ubiquitous-mode t)
+(require-package 'ido-completing-read+)
+(ido-ubiquitous-mode 1)
 
 (require-package 'smex)
 (global-set-key (kbd "M-x") 'smex)
