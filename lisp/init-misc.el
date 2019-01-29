@@ -347,4 +347,13 @@ Position the cursor at it's beginning, according to the current mode."
   (add-hook 'racket-mode-hook 'my-modify-syntax-lisp)
   )
 
+
+;; --------------------------------------------------------------------------------
+;; pacakge: vlf
+;; View Large Files
+;; --------------------------------------------------------------------------------
+(require 'vlf)
+(require 'vlf-setup)
+;; --------------------------------------------------------------------------------
+
 (provide 'init-misc)
