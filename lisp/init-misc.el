@@ -347,4 +347,5 @@ Position the cursor at it's beginning, according to the current mode."
   (add-hook 'racket-mode-hook 'my-modify-syntax-lisp)
   )
 
+
 (provide 'init-misc)
