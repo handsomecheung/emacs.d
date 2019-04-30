@@ -17,6 +17,8 @@
   )
 )
 
+(setenv "GOPATH" (concat (getenv "HOME") "/gowork"))
+
 (defun go-backward-delete()
   (interactive)
   (if (go-mode-in-string)
@@ -31,7 +33,6 @@
             (setq standard-indent 2)
             (setq indent-tabs-mode 1)
             (linum-mode 1)
-            (flymake-mode 1)
             (auto-complete-mode 1)
             ;; (add-to-list 'ac-sources 'ac-source-go)
             ;; (call-process "gocode" nil nil nil "-s")
@@ -54,5 +55,6 @@
 ;;    )
 ;;  go-mode-map
 ;;  )
+
 
 (provide 'init-golang)
