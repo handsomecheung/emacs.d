@@ -1,3 +1,8 @@
+;;; init.el ---- Emacs Config Entrypoint
+
+;;; Commentary:
+; forked from https://github.com/purcell/emacs.d
+
 ;;; This file bootstraps the configuration, which is divided into
 ;;; a number of other files.
 
@@ -6,6 +11,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+
+;;; Code:
+
 (package-initialize)
 
 (if (not (boundp 'user-emacs-directory))
@@ -186,3 +194,5 @@
 (put 'set-goal-column 'disabled nil)
 (put 'erase-buffer 'disabled nil)
 (put 'dired-find-alternate-file 'disabled nil)
+
+;;; init.el ends here
