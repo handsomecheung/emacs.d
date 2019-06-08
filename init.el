@@ -113,6 +113,7 @@
 (require 'init-paredit)
 (require 'init-lisp)
 (require 'init-scheme)
+(require 'init-haskell)
 (require 'init-json)
 (require 'init-restclient)
 (require 'init-groovy)
