@@ -11,11 +11,11 @@
 (add-hook 'python-mode-hook 'hs-minor-mode)
 ;;------------------------------------------------------------
 
-;;----------------------------------------------------------------------------
-;; On-the-fly syntax checking via flymake
-;;----------------------------------------------------------------------------
 
-(require-package 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
+;;----------------------------------------------------------------------------
+;; flycheck config
+;;----------------------------------------------------------------------------
+(setq flycheck-python-pycompile-executable "/usr/local/bin/python3")
+;;----------------------------------------------------------------------------
 
 (provide 'init-python)

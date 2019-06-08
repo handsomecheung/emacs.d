@@ -5,9 +5,6 @@
 (when (>= emacs-major-version 24)
   (require-package 'js2-mode))
 (require-package 'rainbow-delimiters)
-(require-package 'flymake-jslint)
-(require-package 'flymake-json)
-;; (require-package 'flymake-coffee)
 ;; (require-package 'js-comint)
 ;; (require-package 'coffee-mode)
 
@@ -30,15 +27,9 @@
 
 
 (add-auto-mode 'js-mode "\\.json\\'")
-(add-hook 'js-mode-hook 'flymake-json-maybe-load)
 
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
 (autoload 'jsx-mode "jsx-mode" "JSX mode" t)
-
-;; On-the-fly syntax checking
-(eval-after-load 'js
-  '(add-hook 'js-mode-hook 'flymake-jslint-load))
-
 
 ;; js2-mode
 (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2")))
@@ -72,7 +63,6 @@
   `(setq coffee-js-mode preferred-javascript-mode
          coffee-tab-width preferred-javascript-indent-level))
 
-(add-hook 'coffee-mode-hook 'flymake-coffee-load)
 (add-to-list 'auto-mode-alist '("\\.coffee\\.erb\\'" . coffee-mode))
 
 ;; ---------------------------------------------------------------------------

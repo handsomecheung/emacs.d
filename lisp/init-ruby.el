@@ -1,13 +1,11 @@
 (require-package 'ruby-mode)
 (require-package 'ruby-hash-syntax)
-(require-package 'flymake-ruby)
 (require-package 'rinari)
 (require-package 'ruby-compilation)
 (require-package 'inf-ruby)
 ;; (require-package 'robe)
 (require-package 'yari)
 (require-package 'yaml-mode)
-(require-package 'flymake-yaml)
 (require-package 'haml-mode)
 (require-package 'ruby-electric)
 ;; (require-package 'mmm-mode)
@@ -66,12 +64,6 @@
 
 
 ;;----------------------------------------------------------------------------
-;; Ruby - flymake
-;;----------------------------------------------------------------------------
-(add-hook 'ruby-mode-hook 'flymake-ruby-load)
-
-
-;;----------------------------------------------------------------------------
 ;; Ruby - robe
 ;;----------------------------------------------------------------------------
 ;; (add-hook 'ruby-mode-hook 'robe-mode)
@@ -94,9 +86,6 @@
 ;; Ruby - misc
 ;;----------------------------------------------------------------------------
 (defalias 'ri 'yari)
-
-(add-hook 'yaml-mode-hook 'flymake-yaml-load)
-
 
 ;;----------------------------------------------------------------------------
 ;; Ruby - erb

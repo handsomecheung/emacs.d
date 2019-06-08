@@ -14,9 +14,6 @@
 (require-package 'ghci-completion)
 (add-hook 'inferior-haskell-mode-hook 'turn-on-ghci-completion)
 
-(require-package 'flymake-haskell-multi)
-(add-hook 'haskell-mode-hook #'flymake-haskell-multi-load)
-
 ;; Make compilation-mode understand "at blah.hs:11:34-50" lines output by GHC
 (eval-after-load 'compile
   '(progn
