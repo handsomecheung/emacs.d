@@ -117,6 +117,7 @@
 (require 'init-restclient)
 (require 'init-groovy)
 (require 'init-vue)
+(require 'init-haskell)
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
@@ -128,7 +129,6 @@
 ;; (require 'init-haml)
 ;; (require 'init-ocaml)
 ;; (require 'init-sml)
-;: (require 'init-haskell)
 ;; (require 'init-prolog)
 ;; (require 'init-scala)
 ;; (require 'init-slime)
