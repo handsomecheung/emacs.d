@@ -1,5 +1,15 @@
 (require-package 'go-mode)
 
+(setenv "PATH"
+  (concat
+   (if *is-a-mac* "/usr/local/go/bin/go" "/usr/lib/go-1.10/bin") ":"
+   (concat (getenv "HOME") "/gowork/bin" ":")
+   (getenv "PATH")
+  )
+)
+
+(setenv "GOPATH" (concat (getenv "HOME") "/gowork"))
+
 (defun go-run-buffer()
   (interactive)
   (shell-command (concat "go run " (buffer-name))))
@@ -9,15 +19,6 @@
   (if (go-mode-in-string)
       (paredit-kill-line-in-string)
     (paredit-kill)))
-
-(setenv "PATH"
-  (concat
-   (if *is-a-mac* "/usr/local/go/bin/go" "/usr/lib/go-1.10/bin") ":"
-   (getenv "PATH")
-  )
-)
-
-(setenv "GOPATH" (concat (getenv "HOME") "/gowork"))
 
 (defun go-backward-delete()
   (interactive)
@@ -38,23 +39,18 @@
             ;; (call-process "gocode" nil nil nil "-s")
             ))
 
-;;; ### Golang ###
-;; (lazy-unset-key
-;;  '("C-k" "M-o")
-;;  go-mode-map)
-;; (lazy-set-key
-;;  '(
-;;    ("C-c C-c" . go-run-buffer)
-;;    ("C-c C-f" . gofmt)
-;;    ("C-c C-d" . godoc)
-;;    ("C-c C-a" . go-import-add)
-;;    ("C-8" . godef-jump)
-;;    ("C-u C-8" . godef-jump-other-window)
-;;    ("C-k" . go-kill)
-;;    ("M-o" . go-backward-delete)
-;;    )
-;;  go-mode-map
-;;  )
+;; -----------------------------------
+;; golangci-lint
+;; -----------------------------------
+(require-package 'flycheck-golangci-lint)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
+
+(setq flycheck-golangci-lint-executable
+      (concat (getenv "GOPATH") "/bin/golangci-lint"))
+;; -----------------------------------
+
+
 
 
 (provide 'init-golang)
