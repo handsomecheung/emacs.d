@@ -127,6 +127,7 @@
 (require 'init-groovy)
 (require 'init-vue)
 (require 'init-haskell)
+(require 'init-scala)
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
@@ -139,7 +140,6 @@
 ;; (require 'init-ocaml)
 ;; (require 'init-sml)
 ;; (require 'init-prolog)
-;; (require 'init-scala)
 ;; (require 'init-slime)
 ;; (require 'init-clojure)
 ;; (require 'init-common-lisp)
