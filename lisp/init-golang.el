@@ -1,4 +1,4 @@
-(let ((gobin (if *is-a-mac* "/usr/local/go/bin/go" "/usr/lib/go-1.10/bin")))
+(let ((gobin "/usr/local/go/bin"))
   (setenv "PATH"
           (concat
            gobin ":"
