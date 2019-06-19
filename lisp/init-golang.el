@@ -26,6 +26,8 @@
       (paredit-backward-delete-in-string)
     (paredit-backward-delete)))
 
+(setq gofmt-args '("-s"))
+
 (add-hook 'go-mode-hook
           (lambda ()
             (add-hook 'before-save-hook 'gofmt-before-save)
