@@ -1,14 +1,16 @@
-(require-package 'go-mode)
-
-(setenv "PATH"
-  (concat
-   (if *is-a-mac* "/usr/local/go/bin/go" "/usr/lib/go-1.10/bin") ":"
-   (concat (getenv "HOME") "/gowork/bin" ":")
-   (getenv "PATH")
+(let ((gobin "/usr/local/go/bin"))
+  (setenv "PATH"
+          (concat
+           gobin ":"
+           (concat (getenv "HOME") "/gowork/bin" ":")
+           (getenv "PATH")
+           ))
+  (setq exec-path (append exec-path (list gobin)))
   )
-)
 
 (setenv "GOPATH" (concat (getenv "HOME") "/gowork"))
+
+(require-package 'go-mode)
 
 (defun go-run-buffer()
   (interactive)
