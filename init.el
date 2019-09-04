@@ -128,6 +128,9 @@
 (require 'init-vue)
 (require 'init-haskell)
 (require 'init-scala)
+(require 'init-ocaml)
+(require 'init-sml)
+(require 'init-common-lisp)
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
@@ -137,12 +140,9 @@
 ;; (require 'init-org)
 ;; (require 'init-nxml)
 ;; (require 'init-haml)
-;; (require 'init-ocaml)
-;; (require 'init-sml)
 ;; (require 'init-prolog)
 ;; (require 'init-slime)
 ;; (require 'init-clojure)
-;; (require 'init-common-lisp)
 
 (when *spell-check-support-enabled*
   (require 'init-spelling))
