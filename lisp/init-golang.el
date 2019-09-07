@@ -47,8 +47,10 @@
 ;; golangci-lint
 ;; -----------------------------------
 (require-package 'flycheck-golangci-lint)
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
+
+;; not setup by default, golangci-lint eats too much memory
+;; (eval-after-load 'flycheck
+;;   '(add-hook 'flycheck-mode-hook #'flycheck-golangci-lint-setup))
 
 (setq flycheck-golangci-lint-executable
       (concat (getenv "GOPATH") "/bin/golangci-lint"))
