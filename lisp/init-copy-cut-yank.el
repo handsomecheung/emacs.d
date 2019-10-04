@@ -82,5 +82,10 @@
 (global-set-key (kbd "C-M-Z") 'zap-up-to-char-save)
 
 
+;;----------------------------------------------------------------------
+;;---------- copy and paste from terminal ------------------------------
+;; (require-package 'xclip)
+;; (custom-set-variables '(xclip-program "/home/hc/scripts/test.sh"))
+;----------------------------------------------------------------------
 
 (provide 'init-copy-cut-yank)
