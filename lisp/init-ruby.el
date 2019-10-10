@@ -13,8 +13,8 @@
 (require-package 'ruby-tools)
 (add-hook 'ruby-mode-hook 'ruby-tools-mode)
 
-(require-package 'rvm)
-(rvm-use-default)
+;; (require-package 'rvm)
+;; (rvm-use-default)
 
 
 (require-package 'textmate)
