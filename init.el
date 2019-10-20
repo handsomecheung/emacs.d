@@ -83,6 +83,7 @@
 (require 'init-shell)
 (require 'init-ace-jump)
 (require 'init-folding)
+(require 'init-screenshot)
 
 ;; (require 'init-autosave)
 ;; (require 'init-region)
