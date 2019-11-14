@@ -275,6 +275,16 @@ Position the cursor at it's beginning, according to the current mode."
 
 (setq confirm-kill-emacs 'yes-or-no-p)
 
+(defun ask-before-closing ()
+  "Close only if y was pressed."
+  (interactive)
+  (if (y-or-n-p (format "Are you sure you want to close this frame? "))
+      (save-buffers-kill-terminal)
+    (message "Canceled frame close")))
+
+(when (daemonp)
+  (global-set-key (kbd "C-x C-c") 'ask-before-closing))
+
 ;; --------------------------------------------------------------------------------
 ;; minimap
 ;; --------------------------------------------------------------------------------
