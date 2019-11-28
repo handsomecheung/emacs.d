@@ -104,7 +104,6 @@
 (require 'init-quickrun)
 
 ;; (require 'init-sessions)
-;; (require 'init-eim)
 ;; (require 'init-eproject)
 ;; (require 'init-smartparens)
 ;; (require 'init-ecb)
