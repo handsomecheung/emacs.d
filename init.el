@@ -145,6 +145,7 @@
 ;; (require 'init-slime)
 ;; (require 'init-clojure)
 
+
 (when *spell-check-support-enabled*
   (require 'init-spelling))
 
@@ -188,6 +189,7 @@
 ;;----------------------------------------------------------------------------
 (require 'init-locales)
 
+(require 'init-pyim)   ;; pyim must be enabled in the end
 
 ;; Local Variables:
 ;; coding: utf-8
