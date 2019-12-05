@@ -79,6 +79,20 @@ finding any suitable directory, it returns it instead of `to'"
 ;------------------perspective------------------------------
 (require-package 'perspective)
 (persp-mode)
+
+(custom-set-variables '(persp-state-default-file "~/.emacs.d/persp-state"))
+
+(defun persp-auto-save ()
+  "Call persp-state-save non-interactive."
+  (interactive)
+  (persp-state-save persp-state-default-file))
+
+(defun persp-auto-load ()
+  "Call persp-state-load non-interactive."
+  (interactive)
+  (persp-state-load persp-state-default-file))
+
+;; (add-hook 'kill-emacs-hook #'persp-state-save)
 ;; ------------------------------------------------------------------------------------------
 
 
