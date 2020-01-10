@@ -1,2 +1,3 @@
 ls
 exit
+mv nginx.conf nginx.csvsrv.conf

@@ -5,8 +5,7 @@
            (concat (getenv "HOME") "/gowork/bin" ":")
            (getenv "PATH")
            ))
-  (setq exec-path (append exec-path (list gobin)))
-  )
+  (setq exec-path (append exec-path (list gobin))))
 
 (setenv "GOPATH" (concat (getenv "HOME") "/gowork"))
 

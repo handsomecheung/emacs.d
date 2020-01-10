@@ -85,13 +85,12 @@
 (dolist (hook '(js2-mode-hook js3-mode-hook js-mode-hook))
   (add-hook hook 'inferior-js-keys-mode))
 
-;; ---------------------------------------------------------------------------
-;; Alternatively, use skewer-mode
-;; ---------------------------------------------------------------------------
-
-;; (when (featurep 'js2-mode)
-;;   (require-package 'skewer-mode)
-;;   (add-hook 'skewer-mode-hook (lambda () (inferior-js-keys-mode -1))))
-
+;; -----------------------------------
+;; eslint
+;; -----------------------------------
+(let ((nvm-bin (concat (getenv "HOME") "/.nvm/versions/node/v10.16.0/bin")))
+  (setenv "PATH" (concat nvm-bin ":" (getenv "PATH")))
+  (setq exec-path (append exec-path (list nvm-bin))))
+;; -----------------------------------
 
 (provide 'init-javascript)
