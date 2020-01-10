@@ -1,5 +1,3 @@
-(require-package 'jsx-mode)
-
 (require-package 'json)
 (require-package 'js3-mode)
 (when (>= emacs-major-version 24)
@@ -27,9 +25,6 @@
 
 
 (add-auto-mode 'js-mode "\\.json\\'")
-
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
-(autoload 'jsx-mode "jsx-mode" "JSX mode" t)
 
 ;; js2-mode
 (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2")))
@@ -85,12 +80,30 @@
 (dolist (hook '(js2-mode-hook js3-mode-hook js-mode-hook))
   (add-hook hook 'inferior-js-keys-mode))
 
+
+;; -----------------------------------
+;; web-mode
+;; major mode for editing web templates. which can handle mixed js and html like jsx
+;; -----------------------------------
+(require-package 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+;; -----------------------------------
+
+
 ;; -----------------------------------
 ;; eslint
 ;; -----------------------------------
 (let ((nvm-bin (concat (getenv "HOME") "/.nvm/versions/node/v10.16.0/bin")))
   (setenv "PATH" (concat nvm-bin ":" (getenv "PATH")))
   (setq exec-path (append exec-path (list nvm-bin))))
+
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
 ;; -----------------------------------
+
+
 
 (provide 'init-javascript)
