@@ -1,4 +1,3 @@
-(require-package 'json)
 (require-package 'js3-mode)
 (when (>= emacs-major-version 24)
   (require-package 'js2-mode))
@@ -22,9 +21,6 @@
                             (loop for entry in auto-mode-alist
                                   unless (eq preferred-javascript-mode (cdr entry))
                                   collect entry)))
-
-
-(add-auto-mode 'js-mode "\\.json\\'")
 
 ;; js2-mode
 (add-hook 'js2-mode-hook '(lambda () (setq mode-name "JS2")))
