@@ -351,6 +351,7 @@ Position the cursor at it's beginning, according to the current mode."
   (add-hook 'ruby-mode-hook 'my-modify-syntax)
   (add-hook 'python-mode-hook 'my-modify-syntax)
   (add-hook 'js2-mode-hook 'my-modify-syntax)
+  (add-hook 'web-mode-hook 'my-modify-syntax)
   (add-hook 'scheme-mode-hook 'my-modify-syntax-lisp)
   (add-hook 'lisp-mode-hook 'my-modify-syntax-lisp)
   (add-hook 'emacs-lisp-mode-hook 'my-modify-syntax-lisp)
