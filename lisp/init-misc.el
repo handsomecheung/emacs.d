@@ -334,7 +334,10 @@ Position the cursor at it's beginning, according to the current mode."
 
 (defun my-modify-syntax ()
   (progn (modify-syntax-entry ?- "w")
-         (modify-syntax-entry ?_ "w")))
+         (modify-syntax-entry ?_ "w")
+         (modify-syntax-entry ?? "w")
+         (modify-syntax-entry ?! "w")
+         ))
 
 (defun my-modify-syntax-lisp ()
   (progn (modify-syntax-entry ?- "w")
@@ -348,6 +351,7 @@ Position the cursor at it's beginning, according to the current mode."
          ))
 
 (progn
+  (add-hook 'rust-mode-hook 'my-modify-syntax)
   (add-hook 'ruby-mode-hook 'my-modify-syntax)
   (add-hook 'python-mode-hook 'my-modify-syntax)
   (add-hook 'js2-mode-hook 'my-modify-syntax)

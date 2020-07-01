@@ -130,6 +130,7 @@
 (require 'init-ocaml)
 (require 'init-sml)
 (require 'init-common-lisp)
+(require 'init-rust)
 
 ;; (require 'init-crontab)
 ;; (require 'init-textile)
