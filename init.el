@@ -89,6 +89,7 @@
 ;; (require 'init-region)
 ;; (require 'init-icicles)
 
+(require 'init-company)
 (require 'init-recentf)
 (require 'init-hippie-expand)
 (require 'init-yasnippet)
