@@ -91,7 +91,6 @@
 
 (require 'init-recentf)
 (require 'init-hippie-expand)
-(require 'init-auto-complete)
 (require 'init-yasnippet)
 (require 'init-windows)
 (require 'init-fonts)
